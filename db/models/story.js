@@ -6,7 +6,12 @@ module.exports = (sequelize, DataTypes) => {
     body: DataTypes.TEXT
   }, {});
   Story.associate = function(models) {
-    // associations can be defined here
+    Story.belongsTo(models.User, {
+     foreignKey: 'userId'
+    });
+    Story.belongsTo(models.Topic, {
+      foreignKey: 'topicId'
+    });
   };
   return Story;
 };
