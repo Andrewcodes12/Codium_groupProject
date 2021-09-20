@@ -19,18 +19,18 @@ const userValidators = [
     .withMessage('Please provide a value for Last Name')
     .isLength({ max: 50 })
     .withMessage('Last Name must not be more than 50 characters long'),
-  check('emailAddress')
+  check('email')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Email Address')
+    .withMessage('Please provide a value for Email')
     .isLength({ max: 255 })
-    .withMessage('Email Address must not be more than 255 characters long')
+    .withMessage('Email  must not be more than 255 characters long')
     .isEmail()
-    .withMessage('Email Address is not a valid email')
+    .withMessage('Email  is not a valid email')
     .custom((value) => {
-      return db.User.findOne({ where: { emailAddress: value } })
+      return db.User.findOne({ where: { email: value } })
         .then((user) => {
           if (user) {
-            return Promise.reject('The provided Email Address is already in use by another account');
+            return Promise.reject('The provided Email  is already in use by another account');
           }
         });
     }),
@@ -67,9 +67,9 @@ router.get('/login', csrfProtection, asyncHandler( async(req, res) => {
 }));
 
 const loginValidators = [
-  check('emailAddress')
+  check('email')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Email Address'),
+    .withMessage('Please provide a value for Email '),
   check('password')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Password'),
@@ -86,7 +86,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, 
 
   if (validatorErrors.isEmpty()) {
     
-    const user = await db.User.findOne({ where: { emailAddress } });
+    const user = await db.User.findOne({ where: { email } });
 
     if (user !== null) {
      
@@ -106,7 +106,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, 
 
   res.render('login', {
     title: 'Login',
-    emailAddress,
+    email,
     errors,
     csrfToken: req.csrfToken(),
   });
