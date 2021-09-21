@@ -11,6 +11,8 @@ const usersRouter = require('./routes/users');
 const storiesRouter = require('./routes/stories');
 const bcrypt = require("bcryptjs");
 const auth = require('./auth.js');
+const { sessionSecret } = require('./config')
+const { restoreUser } = require('./auth');
 
 
 const app = express();
@@ -21,7 +23,7 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session middleware
@@ -29,7 +31,8 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret: 'superSecret',
+    name: 'connect.sid',
+    secret: sessionSecret,
     store,
     saveUninitialized: false,
     resave: false,
@@ -38,7 +41,7 @@ app.use(
 
 // create Session table if it doesn't already exist
 store.sync();
-
+app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/stories', storiesRouter);
