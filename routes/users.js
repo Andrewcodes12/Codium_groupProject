@@ -122,6 +122,12 @@ router.get('/signup', csrfProtection, userValidators, asyncHandler( async(req, r
   });
 }));
 
+router.post('/logout', (req, res) => {
+  logoutUser(req, res)
+  res.redirect("/")
+})
+
+
 router.post('/signup', csrfProtection, userValidators,
   asyncHandler(async (req, res) => {
     const {
@@ -154,6 +160,7 @@ router.post('/signup', csrfProtection, userValidators,
         csrfToken: req.csrfToken(),
       });
     }
-  }));
+}));
+
 
 module.exports = router;
