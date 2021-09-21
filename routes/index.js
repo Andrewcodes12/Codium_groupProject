@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const {Comment,Follow,Like,Story,Topic,User} = require('../db/models');
-const { asyncHandler } = require('./utils');
+const { csrfProtection, asyncHandler } = require('./utils');
+const {User,Story,Topic,Like,Follow} = require('../db/models');
+const { check, validationResult } = require('express-validator');
+const { requireAuth } = require('../auth');
+
 
 /* GET home page. */
 router.get('/', asyncHandler(async(req, res, next) => {
@@ -9,7 +12,6 @@ router.get('/', asyncHandler(async(req, res, next) => {
   res.render('index', { title: 'Feed',stories })
 
 }));
-
 
 
 
