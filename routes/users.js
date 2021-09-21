@@ -54,18 +54,16 @@ const userValidators = [
     })
 ];
 
-router.get('/', asyncHandler( async(req, res, next) => {
-  res.send('respond with a resource');
-}));
-
+//redundant
+// router.get('/', asyncHandler( async(req, res, next) => {
+//   res.send('respond with a resource');
+// }));
 
 router.get('/login', csrfProtection, asyncHandler( async(req, res) => {
   res.render('login', {
     title: 'Login',
     csrfToken: req.csrfToken()
-
   })
-
 }));
 
 const loginValidators = [

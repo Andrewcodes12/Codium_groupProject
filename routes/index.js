@@ -15,4 +15,9 @@ router.get('/', asyncHandler(async(req, res, next) => {
 
 
 
+/* TODO:
+styling
+add delete and edit buttons
+*/
+
 module.exports = router;
