@@ -7,24 +7,30 @@ module.exports = {
         userId: 1,
         topicId: 1,
         body: "stuff",
+        title:"For Loops",
+        subTitle:"iteration",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        userId: 1,
+        userId: 2,
         topicId: 2,
         body: "other stuff",
+        title:"Variables",
+        subTitle:"Assignment",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        userId: 1,
+        userId: 3,
         topicId: 3,
         body: "more stuff",
+        title:"Querying",
+        subTitle:"Selectors",
         createdAt: new Date(),
         updatedAt: new Date()
       }
-    ], {returning: true});
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {

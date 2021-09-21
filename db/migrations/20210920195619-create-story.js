@@ -22,6 +22,14 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull:false
       },
+      title: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
+      },
+      subTitle: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
