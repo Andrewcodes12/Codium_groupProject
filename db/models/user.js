@@ -8,10 +8,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     User.hasMany(models.Follow, {
-      foreignKey: 'followerId'
+      foreignKey: 'followerId',
+      as: 'usersFollow'
     });
     User.hasMany(models.Follow, {
-      foreignKey: 'userId'
+      foreignKey: 'userId',
+      as: 'Followers'
     });
     User.hasMany(models.Like, {
       foreignKey: 'userId'

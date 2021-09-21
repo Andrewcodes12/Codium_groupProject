@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const db = require('../db/models');
+const {User} = require('../db/models');
 const { loginUser, logoutUser } = require('../auth');
 const { csrfProtection, asyncHandler } = require('./utils');
 const { check, validationResult } = require('express-validator');
@@ -27,7 +27,7 @@ const userValidators = [
     .isEmail()
     .withMessage('Email  is not a valid email')
     .custom((value) => {
-      return db.User.findOne({ where: { email: value } })
+      return User.findOne({ where: { email: value } })
         .then((user) => {
           if (user) {
             return Promise.reject('The provided Email  is already in use by another account');
@@ -63,7 +63,9 @@ router.get('/login', csrfProtection, asyncHandler( async(req, res) => {
   res.render('login', {
     title: 'Login',
     csrfToken: req.csrfToken()
+
   })
+
 }));
 
 const loginValidators = [
@@ -80,20 +82,20 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, 
     email,
     password
   } = req.body;
-  
+
   let errors = [];
   const validatorErrors = validationResult(req);
 
   if (validatorErrors.isEmpty()) {
-    
-    const user = await db.User.findOne({ where: { email } });
+
+    const user = await User.findOne({ where: { email } });
 
     if (user !== null) {
-     
+
       const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
 
       if (passwordMatch) {
-        
+
         loginUser(req, res, user);
         return res.redirect('/');
       }
@@ -114,7 +116,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, 
 }));
 
 router.get('/signup', csrfProtection, userValidators, asyncHandler( async(req, res) => {
-  const user = await db.User.build();
+  const user = await User.build();
   res.render('signup', {
     title: 'Signup',
     user,
@@ -131,7 +133,7 @@ router.post('/signup', csrfProtection, userValidators,
       password,
     } = req.body;
 
-    const user = db.User.build({
+    const user = User.build({
       email,
       firstName,
       lastName,
