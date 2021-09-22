@@ -24,13 +24,24 @@ block content
         div.commentContainer 
             h2 Comments
             div.commentBox
-              div(id='commentBoxForm')
+              div(class='commentBoxForm')
                 input(id='token' type='hidden' name='_csrf' value=csrfToken)
-                +field('content', content, 'textarea', 'Comment')
+                +field('content', content, '', 'Comment')
                 div.submitBtn
                   button(id='submitBtn' data-story-id=story.id) Submit 
             div.commentList
-                
+                each comment in comments 
+                    div(class=`comment-${comment.id}`)
+                        div(class='commenterInfo')
+                           div(class='commenterName')
+                           input(type='hidden', value=comment.id, id='comment.id')
+                        div(class='commentBody')= comment.body
+                        if locals.authenticated && locals.user.id === comment.userId
+                            div(class="commentButtons")
+                                button(class=`editButton-${comment.id} btn`) Edit
+                                button(class=`deleteButton-${comment.id} btn`) Delete
+                                button(class=`editCancelButton-${comment.id} btn` hidden) Cancel
+                                button(class=`editSubmitButton-${comment.id} btn` hidden) Submit
         
         
         

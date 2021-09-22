@@ -84,11 +84,16 @@ router.get('/:id(\\d+)', csrfProtection,
     const storyId = parseInt(req.params.id, 10);
     const story = await Story.findByPk(storyId,{
       include: [Topic,User]
-    })
-
+    });
+    const comments = await Comment.findAll({
+      where: {
+        id: storyId
+      }
+    });
 
     res.render('story',{
       story,
+      comments,
       csrfToken: req.csrfToken(),
     })
   }));

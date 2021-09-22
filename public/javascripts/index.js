@@ -11,11 +11,13 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           const _csrf = document.querySelector('#token').value;
           event.preventDefault();
           const userInput = document.querySelector('.form-control').value
-          const newTextArea = document.createElement('textarea');
+          document.querySelector('.form-control').value = '';
+          const newTextArea = document.createElement('p');
           const storyId = event.target.dataset.storyId;
           newTextArea.innerText = userInput;
           commentList.appendChild(newTextArea);
           const body = { body: userInput, _csrf }
+          
 
             try {
                 const commentResponse = await fetch(`/stories/${storyId}/comments`, { 
@@ -30,6 +32,8 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
             } catch (e) {
                 console.log("Failed to fetch comments", e);
             }
+
+        
       });
   }
 })
