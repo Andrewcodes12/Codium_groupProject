@@ -30,9 +30,9 @@ const storyValidators = [
     .withMessage('Title must not be more than 255 characters long'),
   check('subtitle')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Subtitle')
+    .withMessage('Please provide a value for subtitle')
     .isLength({ max: 100 })
-    .withMessage('Subtitle must not be more than 100 characters long'),
+    .withMessage('subtitle must not be more than 100 characters long'),
   check('body')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Body')
@@ -46,7 +46,7 @@ const storyValidators = [
 router.post('/new', requireAuth, csrfProtection, storyValidators, asyncHandler(async(req, res, next) => {
     const {
       title,
-      subTitle,
+      subtitle,
       topic,
       body
     } = req.body;
@@ -54,7 +54,7 @@ router.post('/new', requireAuth, csrfProtection, storyValidators, asyncHandler(a
     const story = Story.build({
       userId: req.session.auth.userId,
       title,
-      subTitle,
+      subtitle,
       topicId: topic,
       body
     });
@@ -98,11 +98,13 @@ router.get('/edit/:id(\\d+)',requireAuth, csrfProtection,
   asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await Story.findByPk(storyId);
+    const topics = await Topic.findAll();
 
     checkPermissions(story,res.locals.user)
 
     res.render('story-edit', {
       title: 'Edit Story',
+      topics,
       story,
       csrfToken: req.csrfToken(),
     });
@@ -113,18 +115,19 @@ router.get('/edit/:id(\\d+)',requireAuth, csrfProtection,
     const storyId = parseInt(req.params.id, 10);
     const storyToUpdate = await Story.findByPk(storyId);
 
+
     checkPermissions(storyToUpdate,res.locals.user)
 
     const {
       title,
-      subTitle,
+      subtitle,
       topic,
       body
     } = req.body;
 
     const story = {
       title,
-      subTitle,
+      subtitle,
       topicId: topic,
       body
     };
@@ -135,16 +138,40 @@ router.get('/edit/:id(\\d+)',requireAuth, csrfProtection,
       await storyToUpdate.update(story);
       res.redirect('/');
     } else {
+      const topics = await Topic.findAll();
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('story-edit', {
         title: 'Edit Story',
         story: { ...story, id:storyId },
         errors,
+        topics,
         csrfToken: req.csrfToken(),
       });
     }
   }));
 
+  router.get('/delete/:id(\\d+)',requireAuth, csrfProtection, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await Story.findByPk(storyId);
+
+    checkPermissions(story,res.locals.user)
+
+    res.render('story-delete', {
+      title: 'Delete story',
+      story,
+      csrfToken: req.csrfToken(),
+    });
+  }));
+
+  router.post('/delete/:id(\\d+)',requireAuth, csrfProtection, asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await Story.findByPk(storyId);
+
+    checkPermissions(story,res.locals.user)
+
+    await story.destroy();
+    res.redirect('/');
+  }));
 
 
 /* TODO:

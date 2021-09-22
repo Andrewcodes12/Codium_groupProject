@@ -9,6 +9,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const storiesRouter = require('./routes/stories');
+
+
 const bcrypt = require("bcryptjs");
 const auth = require('./auth.js');
 const { sessionSecret } = require('./config')
@@ -64,7 +66,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-
-
-

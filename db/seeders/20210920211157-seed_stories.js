@@ -8,7 +8,7 @@ module.exports = {
         topicId: 1,
         body: "stuff",
         title:"For Loops",
-        subTitle:"iteration",
+        subtitle:"iteration",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -17,7 +17,7 @@ module.exports = {
         topicId: 2,
         body: "other stuff",
         title:"Variables",
-        subTitle:"Assignment",
+        subtitle:"Assignment",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -26,7 +26,7 @@ module.exports = {
         topicId: 3,
         body: "more stuff",
         title:"Querying",
-        subTitle:"Selectors",
+        subtitle:"Selectors",
         createdAt: new Date(),
         updatedAt: new Date()
       }

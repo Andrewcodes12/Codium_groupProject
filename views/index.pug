@@ -9,24 +9,19 @@ append head
 block content
   h1= title
 
-
-
+  a(class="btn-add-story" href='/stories/new' role='button') Add story
   div(class='stories')
-    a(class="btn-add-story" href='/stories/new' role='button') Add story
-  table(class='stories-table')
-    thead(class='thead')
-      tr
-        th(scope='col') Story title
-        th(scope='col') Subtitle
-        th(scope='col') Topic
-        th(scope='col') Body
-        th(scope='col') Authors
-    tbody
+
       each story in stories
-        tr
-          td= story.title
-            a(href=`/stories/edit/${story.id}` class='redirect')
-          td= story.subTitle
-          td= story.Topic.name
-          td= story.body
-          td= story.User.firstName
+
+          div(class='title')
+            a(class="btn-add-story" href=`/stories/${story.id}` role='button')
+              h2= story.title
+          div(class='subtitle')
+              h3= story.subtitle
+          div(class='topic')
+              h4= story.Topic.name
+              h5= story.User.firstName
+              h5= story.User.lastName
+          div(class='body')
+              p= story.body

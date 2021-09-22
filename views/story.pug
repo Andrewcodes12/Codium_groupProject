@@ -5,8 +5,8 @@ block content
     body
         div(class='title')
             h2= story.title
-        div(class='subTitle')
-            h3= story.subTitle
+        div(class='subtitle')
+            h3= story.subtitle
         div(class='topic')
             h4= story.Topic.name
             h5= story.User.firstName
@@ -16,3 +16,8 @@ block content
             a(class='btn btn-success' href='/stories/new' role='button') Add Story
             a(class='btn btn-primary' href=`/stories/edit/${story.id}` role='button') Edit
             a(class='btn btn-danger ml-2' href=`/stories/delete/${story.id}` role='button') Delete
+        div(class='commentBox')
+            textarea.textArea(placeholder="Leave a comment" name="CommentBox")
+            a(class='commentBtn' href=`/stories/${story.id}/comments` role='button') Submit Comment
+        div(class='commentList')
+            
