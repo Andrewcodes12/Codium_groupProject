@@ -1,0 +1,15 @@
+extend layout.pug
+block content
+
+
+    body
+        div(class='title')
+            h2= story.title
+        div(class='subTitle')
+            h3= story.subTitle
+        div(class='topic')
+            h4= story.Topic.name
+            h5= story.User.firstName
+            h5= story.User.lastName
+        div(class='body')
+            p= story.body

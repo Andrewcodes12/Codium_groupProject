@@ -80,6 +80,74 @@ router.post('/new', requireAuth, csrfProtection, storyValidators, asyncHandler(a
 
 }));
 
+router.get('/:id(\\d+)', csrfProtection,
+  asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await Story.findByPk(storyId,{
+      include: [Topic,User]
+    })
+
+
+    res.render('story',{
+      story,
+      csrfToken: req.csrfToken(),
+    })
+  }));
+
+
+router.get('/edit/:id(\\d+)',requireAuth, csrfProtection,
+  asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await Story.findByPk(storyId);
+
+    checkPermissions(story,res.locals.user)
+
+    res.render('story-edit', {
+      title: 'Edit Story',
+      story,
+      csrfToken: req.csrfToken(),
+    });
+  }));
+
+  router.post('/edit/:id(\\d+)',requireAuth, csrfProtection, storyValidators,
+  asyncHandler(async (req, res) => {
+    const storyId = parseInt(req.params.id, 10);
+    const storyToUpdate = await Story.findByPk(storyId);
+
+    checkPermissions(storyToUpdate,res.locals.user)
+
+    const {
+      title,
+      subTitle,
+      topic,
+      body
+    } = req.body;
+
+    const story = {
+      title,
+      subTitle,
+      topicId: topic,
+      body
+    };
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      await storyToUpdate.update(story);
+      res.redirect('/');
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render('story-edit', {
+        title: 'Edit Story',
+        story: { ...story, storyId },
+        errors,
+        csrfToken: req.csrfToken(),
+      });
+    }
+  }));
+
+
+
 /* TODO:
 styling
 */
