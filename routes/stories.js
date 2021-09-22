@@ -28,7 +28,7 @@ const storyValidators = [
     .withMessage('Please provide a value for Title')
     .isLength({ max: 255 })
     .withMessage('Title must not be more than 255 characters long'),
-  check('subTitle')
+  check('subtitle')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Subtitle')
     .isLength({ max: 100 })
@@ -37,11 +37,10 @@ const storyValidators = [
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Body')
     .isLength({ max: 1000 }),
-    // .isISO8601()
+
   check('topic')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Topic')
-    // .isInt({ min: 0 })
 ];
 
 router.post('/new', requireAuth, csrfProtection, storyValidators, asyncHandler(async(req, res, next) => {
@@ -139,7 +138,7 @@ router.get('/edit/:id(\\d+)',requireAuth, csrfProtection,
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('story-edit', {
         title: 'Edit Story',
-        story: { ...story, storyId },
+        story: { ...story, id:storyId },
         errors,
         csrfToken: req.csrfToken(),
       });

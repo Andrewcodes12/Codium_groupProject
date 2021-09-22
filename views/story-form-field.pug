@@ -5,5 +5,8 @@ input(type='hidden' name='_csrf' value=csrfToken)
 +field('Title', 'title', story.title)
 +field('subtitle', 'subtitle', story.subtitle)
 +field('body', 'body', story.body)
-+field('topic', 'topic', story.topic)
 
+    select(name="topic" required)
+    label(for="topic") Topic
+        each topic in topics
+            option(value=topic.id)= topic.name

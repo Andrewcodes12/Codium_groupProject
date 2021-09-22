@@ -8,7 +8,7 @@ append head
 
 block content
   h1= title
-  
+
 
 
   div(class='stories')
@@ -25,6 +25,7 @@ block content
       each story in stories
         tr
           td= story.title
+            a(href=`/stories/edit/${story.id}` class='redirect')
           td= story.subTitle
           td= story.Topic.name
           td= story.body

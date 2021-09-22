@@ -13,3 +13,6 @@ block content
             h5= story.User.lastName
         div(class='body')
             p= story.body
+            a(class='btn btn-success' href='/stories/new' role='button') Add Story
+            a(class='btn btn-primary' href=`/stories/edit/${story.id}` role='button') Edit
+            a(class='btn btn-danger ml-2' href=`/stories/delete/${story.id}` role='button') Delete
