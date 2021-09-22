@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const {User,Story,Topic,Like,Follow} = require('../db/models');
+const { User, Story, Topic, Like, Follow, Comment } = require('../db/models');
 const { loginUser, logoutUser } = require('../auth');
 const { csrfProtection, asyncHandler } = require('./utils');
 const { check, validationResult } = require('express-validator');
@@ -173,6 +173,33 @@ router.get('/edit/:id(\\d+)',requireAuth, csrfProtection,
     res.redirect('/');
   }));
 
+
+  router.post('/:id(\\d+)/comments', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
+    const { body } = req.body; 
+    const theStoryId = parseInt(req.params.id, 10);
+    const comment = await Comment.build({ body, userId: req.session.auth.userId, storyId: theStoryId })
+    const validationErrors = validationResult(req);
+  
+    const user = await User.findByPk(req.session.auth.userId);
+    const { firstName, id: userId } = user;
+  
+    if (validationErrors.isEmpty()) {
+      await comment.save();
+      const { id, updatedAt } = comment;
+      return res.status(201).json({
+        id,
+        userId,
+        body,
+        firstName,
+        updatedAt: updatedAt.toDateString()
+      })
+    } else {
+      const errors = validationErrors.array().map((error) => error.msg);
+      return res.status(406).json({
+        emptyComment: true
+      });
+    }
+  }));
 
 /* TODO:
 styling

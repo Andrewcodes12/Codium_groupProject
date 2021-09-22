@@ -1,4 +1,9 @@
 extend layout.pug
+
+include utils.pug 
+
+append head
+  script(src='/javascripts/index.js' type='module' defer)
 block content
 
 
@@ -16,8 +21,46 @@ block content
             a(class='btn btn-success' href='/stories/new' role='button') Add Story
             a(class='btn btn-primary' href=`/stories/edit/${story.id}` role='button') Edit
             a(class='btn btn-danger ml-2' href=`/stories/delete/${story.id}` role='button') Delete
-        div(class='commentBox')
-            textarea.textArea(placeholder="Leave a comment" name="CommentBox")
-            a(class='commentBtn' href=`/stories/${story.id}/comments` role='button') Submit Comment
-        div(class='commentList')
+        div.commentContainer 
+            h2 Comments
+            div.commentBox
+              div(id='commentBoxForm')
+                input(id='token' type='hidden' name='_csrf' value=csrfToken)
+                +field('content', content, 'textarea', 'Comment')
+                div.submitBtn
+                  button(id='submitBtn' data-story-id=story.id) Submit 
+            div.commentList
+                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
             

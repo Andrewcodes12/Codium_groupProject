@@ -1,12 +1,35 @@
-const { body } = require("express-validator")
-const { request } = require("../../app")
 
-window.addEventListener("load", (event)=>{
+
+window.addEventListener("DOMContentLoaded", async (event) =>{
     const commentList = document.querySelector('.commentList')
-    const commentBtn = document.querySelector('.commentBtn')
-    commentBtn.addEventListener("click", event => {
-        const textArea = document.querySelector('.textArea').value
+    const commentBtn = document.querySelector('#submitBtn')
 
-    })
 
+    if (commentBtn) {
+      commentBtn.addEventListener("click", async event => {
+
+          const _csrf = document.querySelector('#token').value;
+          event.preventDefault();
+          const userInput = document.querySelector('.form-control').value
+          const newTextArea = document.createElement('textarea');
+          const storyId = event.target.dataset.storyId;
+          newTextArea.innerText = userInput;
+          commentList.appendChild(newTextArea);
+          const body = { body: userInput, _csrf }
+
+            try {
+                const commentResponse = await fetch(`/stories/${storyId}/comments`, { 
+                  method: "POST",
+                  body: JSON.stringify(body),
+                  headers: { "Content-Type": "application/json" },
+                });
+              
+                // Converts to JSON
+                const commentData = await commentResponse.json();
+ 
+            } catch (e) {
+                console.log("Failed to fetch comments", e);
+            }
+      });
+  }
 })
