@@ -13,11 +13,12 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           event.preventDefault();
           const userInput = document.querySelector('.form-control').value
           document.querySelector('.form-control').value = '';
-          const newTextArea = document.createElement('p');
+          const newTextArea = document.createElement('textarea');
           const storyId = event.target.dataset.storyId;
           newTextArea.innerText = userInput;
           commentList.appendChild(newTextArea);
           const body = { body: userInput, _csrf }
+         
 
 
             try {
@@ -31,26 +32,76 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
                 const commentData = await commentResponse.json();
                 console.log(commentData, 'this was logged')
 
-            } catch (e) {
-                console.log("Failed to fetch comments", e);
-            }
-
-
+                
+                const { 
+                  id,
+                  userId,
+                  firstName,
+                  updatedAt,
+                } = commentData
+                
           const editBtn = document.createElement('button');
-          const deleteBtn = document.createElement('button');
-          const editCancelBtn = document.createElement('button');
-          const editSubmitBtn = document.createElement('button');
-          editBtn.classList.add('editBtn');
+          editBtn.setAttribute('value', id)
+          editBtn.className += `editBtn-${id}`;
+          editBtn.className += 'btn';
+          editBtn.className += 'editBtn';
           editBtn.innerText = 'Edit'
 
-          deleteBtn.classList.add('deleteBtn');
-          deleteBtn.innerText = 'Delete'
+          editBtn.addEventListener("click", async (event) => {
+            editBtn.hidden= true
+            deleteBtn.hidden= true
+            editCancelBtn.hidden= false
+            editSubmitBtn.hidden= false
+          })
 
-          editCancelBtn.classList.add('editCancelBtn');
+                
+          const deleteBtn = document.createElement('button');
+          deleteBtn.setAttribute('value', id)
+          deleteBtn.className += `deleteBtn-${id}`;
+          deleteBtn.className += 'btn';
+          deleteBtn.className += 'deleteBtn';
+          deleteBtn.innerText = 'Delete'
+          
+          deleteBtn.addEventListener("click", async (event) => {
+            editBtn.hidden= true
+            deleteBtn.hidden= true
+            editCancelBtn.hidden= false
+            editSubmitBtn.hidden= false
+          })
+          
+
+          const editCancelBtn = document.createElement('button');
+          editCancelBtn.setAttribute('value', id)
+          editCancelBtn.className += `editCancelBtn-${id}`;
+          editCancelBtn.className += 'btn';
+          editCancelBtn.className += 'editCancelBtn';
           editCancelBtn.innerText = 'Cancel'
 
-          editSubmitBtn.classList.add('editSubmitBtn');
+          editCancelBtn.addEventListener("click", async (event) => {
+            editBtn.hidden= false
+            deleteBtn.hidden= false
+            editCancelBtn.hidden= true
+            editSubmitBtn.hidden= true
+          })
+
+          
+          const editSubmitBtn = document.createElement('button');
+          editSubmitBtn.setAttribute('value', id)
+          editSubmitBtn.className += `editSubmitBtn-${id}`;
+          editSubmitBtn.className += 'btn';
+          editSubmitBtn.className += 'editSubmitBtn';
           editSubmitBtn.innerText = 'Submit'
+
+          editSubmitBtn.addEventListener("click", async (event) => {
+            editBtn.hidden= false
+            deleteBtn.hidden= false
+            editCancelBtn.hidden= true
+            editSubmitBtn.hidden= true
+          })
+          
+          
+          
+          
 
           newTextArea.appendChild(editBtn);
           newTextArea.appendChild(deleteBtn);
@@ -58,16 +109,12 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           editCancelBtn.hidden= true
           newTextArea.appendChild(editSubmitBtn);
           editSubmitBtn.hidden= true
+          
 
-          const editButton= document.querySelector(`.editBtn editBtn-${comment.id} btn`)
-          editButton.addEventListener("click", async (event) => {
-            editBtn.hidden= true
-            deleteBtn.hidden= true
-            editCancelBtn.hidden= false
-            editSubmitBtn.hidden= false
-            console.log("this works")
-          })
-
+        } catch (e) {
+            console.log("Failed to fetch comments", e);
+        }
         });
       }
     })
+    
