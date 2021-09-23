@@ -3,6 +3,58 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
     const commentBtn = document.querySelector('#submitBtn')
 
 
+    const editBtnPug = document.querySelectorAll('.editBtn')
+    editBtnPug.forEach(btns => {
+      btns.addEventListener("click", event => {
+        const commentBody = event.target.parentElement.previousSibling.previousSibling
+            event.target.hidden= true
+            event.target.nextSibling.hidden= true
+            event.target.nextSibling.nextSibling.hidden= false
+            event.target.nextSibling.nextSibling.nextSibling.hidden= false
+            commentBody.setAttribute("contenteditable","true")
+            event.preventDefault()
+      })
+    })
+
+    const DeleteBtnPug = document.querySelectorAll('.deleteBtn')
+    DeleteBtnPug.forEach(btns => {
+      btns.addEventListener("click", event => {
+        const commentBody = event.target.parentElement.previousSibling.previousSibling
+        event.target.hidden= true
+        event.target.nextSibling.hidden= true
+        event.target.nextSibling.nextSibling.hidden= false
+        event.target.nextSibling.nextSibling.hidden= false
+        commentBody.setAttribute("contenteditable","true")
+        event.preventDefault()
+      })
+    })
+
+    const editCancelBtnPug = document.querySelectorAll('.editCancelBtn')
+    editCancelBtnPug.forEach(btns => {
+      btns.addEventListener("click", event => {
+        const commentBody = event.target.parentElement.previousSibling.previousSibling
+        event.target.hidden= true
+        event.target.nextSibling.hidden= true
+        event.target.previousSibling.hidden= false
+        event.target.previousSibling.previousSibling.hidden= false
+        commentBody.setAttribute("contenteditable","false")
+        event.preventDefault()
+      })
+    })
+
+    const editSubmitBtnPug = document.querySelectorAll('.editSubmitBtn')
+    editSubmitBtnPug.forEach(btns => {
+      btns.addEventListener("click", event => {
+        const commentBody = event.target.parentElement.previousSibling.previousSibling
+        event.target.hidden= true
+        event.target.previousSibling.hidden= true
+        event.target.previousSibling.previousSibling.hidden= false
+        event.target.previousSibling.previousSibling.previousSibling.hidden= false
+        commentBody.setAttribute("contenteditable","false")
+        event.preventDefault()
+      })
+    })
+
     if (commentBtn) {
       commentBtn.addEventListener("click", async event => {
 
@@ -49,14 +101,19 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           editBtn.className += 'editBtn';
           editBtn.innerText = 'Edit'
 
-          const commentContentNotADiv = document.querySelector(".commentContent")
-          editBtn.addEventListener("click", async (event) => {
-            editBtn.hidden= true
-            deleteBtn.hidden= true
-            editCancelBtn.hidden= false
-            editSubmitBtn.hidden= false
-            commentContentNotADiv.setAttribute("contenteditable","true")
-          })
+
+          editBtn.forEach(btns => {
+            btns.addEventListener("click", event => {
+              const commentBody = event.target.parentElement.previousSibling.previousSibling
+                  event.target.hidden= true
+                  event.target.nextSibling.hidden= true
+                  event.target.nextSibling.nextSibling.hidden= false
+                  event.target.nextSibling.nextSibling.nextSibling.hidden= false
+                  commentBody.setAttribute("contenteditable","true")
+                  event.preventDefault()
+            })
+            })
+
 
 
           const deleteBtn = document.createElement('button');
@@ -66,12 +123,20 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           deleteBtn.className += 'deleteBtn';
           deleteBtn.innerText = 'Delete'
 
-          deleteBtn.addEventListener("click", async (event) => {
-            editBtn.hidden= true
-            deleteBtn.hidden= true
-            editCancelBtn.hidden= false
-            editSubmitBtn.hidden= false
-          })
+
+
+
+            deleteBtn.addEventListener("click", event => {
+              const commentBody = event.target.parentElement.previousSibling.previousSibling
+              event.target.hidden= true
+              event.target.nextSibling.hidden= true
+              event.target.nextSibling.nextSibling.hidden= false
+              event.target.nextSibling.nextSibling.nextSibling.hidden= false
+              commentBody.setAttribute("contenteditable","false")
+              event.preventDefault()
+
+            })
+
           //--------------------------------------------------------------------
           const commentUserInfo = document.createElement("div")
           commentUserInfo.classList.add('commentUserInfo')
@@ -93,12 +158,17 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           editCancelBtn.className += 'editCancelBtn';
           editCancelBtn.innerText = 'Cancel'
 
-          editCancelBtn.addEventListener("click", async (event) => {
-            editBtn.hidden= false
-            deleteBtn.hidden= false
-            editCancelBtn.hidden= true
-            editSubmitBtn.hidden= true
-          })
+
+            editCancelBtn.addEventListener("click", event => {
+              const commentBody = event.target.parentElement.previousSibling.previousSibling
+              event.target.hidden= true
+              event.target.nextSibling.hidden= true
+              event.target.previousSibling.hidden= false
+              event.target.previousSibling.previousSibling.hidden= false
+              commentBody.setAttribute("contenteditable","false")
+              event.preventDefault()
+            })
+
 
 
           const editSubmitBtn = document.createElement('button');
@@ -108,23 +178,18 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           editSubmitBtn.className += 'editSubmitBtn';
           editSubmitBtn.innerText = 'Submit'
 
-          editSubmitBtn.addEventListener("click", async (event) => {
-            editBtn.hidden= false
-            deleteBtn.hidden= false
-            editCancelBtn.hidden= true
-            editSubmitBtn.hidden= true
-          })
+
+            editSubmitBtn.addEventListener("click", event => {
+              const commentBody = event.target.parentElement.previousSibling.previousSibling
+              event.target.hidden= true
+              event.target.previousSibling.hidden= true
+              event.target.previousSibling.previousSibling.hidden= false
+              event.target.previousSibling.previousSibling.previousSibling.hidden= false
+              commentBody.setAttribute("contenteditable","false")
+              event.preventDefault()
+            })
 
 
-
-
-
-          // newDivArea.appendChild(editBtn);
-          // newDivArea.appendChild(deleteBtn);
-          // newDivArea.appendChild(editCancelBtn);
-          // editCancelBtn.hidden= true
-          // newDivArea.appendChild(editSubmitBtn);
-          // editSubmitBtn.hidden= true
 
           commentButtons.appendChild(editBtn);
           commentButtons.appendChild(deleteBtn);

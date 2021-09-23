@@ -35,9 +35,9 @@ block content
                           div(class='commenterInfo')
                             div(class='commenterName')
                             input(type='hidden', value=`${comment.id}`, id=`${comment.id}`)
-                          div(class='commentBody')= comment.body
+                          div(class='commentBody' contenteditable="false")= comment.body
                           if locals.authenticated && locals.user.id === comment.userId
-                              div(class="commentContent" contenteditable="false")
+                              div(class="commentContent" )
                               div(class="commentButtons")
                                   button(class=`editBtn editBtn-${comment.id} btn`) Edit
                                   button(class=`deleteBtn deleteBtn-${comment.id} btn`) Delete
