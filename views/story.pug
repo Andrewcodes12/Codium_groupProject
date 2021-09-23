@@ -1,6 +1,6 @@
 extend layout.pug
 
-include utils.pug 
+include utils.pug
 
 append head
   script(src='/javascripts/index.js' type='module' defer)
@@ -21,17 +21,16 @@ block content
             a(class='btn btn-success' href='/stories/new' role='button') Add Story
             a(class='btn btn-primary' href=`/stories/edit/${story.id}` role='button') Edit
             a(class='btn btn-danger ml-2' href=`/stories/delete/${story.id}` role='button') Delete
-        if locals.authenticated
-          div.commentContainer 
+        div.commentContainer
               h2 Comments
               div.commentBox
                 div(class='commentBoxForm')
                   input(id='token' type='hidden' name='_csrf' value=csrfToken)
                   +field('content', content, '', 'Comment')
                   div.submitBtn
-                    button(id='submitBtn' data-story-id=story.id) Submit 
+                    button(id='submitBtn' data-story-id=story.id) Submit
               div.commentList
-                  each comment in comments 
+                  each comment in comments
                       div(class=`comment-${comment.id}`)
                           div(class='commenterInfo')
                             div(class='commenterName')
@@ -39,40 +38,7 @@ block content
                           div(class='commentBody')= comment.body
                           if locals.authenticated && locals.user.id === comment.userId
                               div(class="commentButtons")
-                                  button(class=`editButton-${comment.id} btn`) Edit
-                                  button(class=`deleteButton-${comment.id} btn`) Delete
-                                  button(class=`editCancelButton-${comment.id} btn` hidden) Cancel
-                                  button(class=`editSubmitButton-${comment.id} btn` hidden) Submit
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-
-            
+                                  button(class=`editBtn editBtn-${comment.id} btn`) Edit
+                                  button(class=`deleteBtn deleteBtn-${comment.id} btn`) Delete
+                                  button(class=`editCancelBtn editCancelBtn-${comment.id} btn` hidden) Cancel
+                                  button(class=`editSubmitBtn editSubmitBtn-${comment.id} btn` hidden) Submit
