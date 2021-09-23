@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
     const commentList = document.querySelector('.commentList')
     const commentBtn = document.querySelector('#submitBtn')
 
-
+    // Event Listner for PUG edit button
     const editBtnPug = document.querySelectorAll('.editBtn')
     editBtnPug.forEach(btns => {
       btns.addEventListener("click", event => {
@@ -15,7 +15,9 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
             event.preventDefault()
       })
     })
+    //---------------------------------------------------------------------------------------------------------------
 
+    // Event Listner for PUG delete button
     const DeleteBtnPug = document.querySelectorAll('.deleteBtn')
     DeleteBtnPug.forEach(btns => {
       btns.addEventListener("click", event => {
@@ -28,7 +30,9 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         event.preventDefault()
       })
     })
+    //---------------------------------------------------------------------------------------------------------------
 
+    // Event Listner for PUG  eidt cancel button
     const editCancelBtnPug = document.querySelectorAll('.editCancelBtn')
     editCancelBtnPug.forEach(btns => {
       btns.addEventListener("click", event => {
@@ -41,7 +45,9 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         event.preventDefault()
       })
     })
+    //---------------------------------------------------------------------------------------------------------------
 
+    // Event Listner for PUG edit submit button
     const editSubmitBtnPug = document.querySelectorAll('.editSubmitBtn')
     editSubmitBtnPug.forEach(btns => {
       btns.addEventListener("click", event => {
@@ -54,13 +60,13 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         event.preventDefault()
       })
     })
+    //---------------------------------------------------------------------------------------------------------------
+
 
     if (commentBtn) {
       commentBtn.addEventListener("click", async event => {
 
-          // if(){
-
-          // }
+          
           const _csrf = document.querySelector('#token').value;
           event.preventDefault();
           const userInput = document.querySelector('.form-control').value
@@ -75,7 +81,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
 
 
 
-            try {
+        try {
                 const commentResponse = await fetch(`/stories/${storyId}/comments`, {
                   method: "POST",
                   body: JSON.stringify(body),
@@ -84,7 +90,6 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
 
                 // Converts to JSON
                 const commentData = await commentResponse.json();
-                console.log(commentData, 'this was logged')
 
 
                 const {
@@ -93,15 +98,41 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
                   firstName,
                   updatedAt,
                 } = commentData
-
+          
+          //Creating Edit buttton      
           const editBtn = document.createElement('button');
           editBtn.setAttribute('value', id)
           editBtn.className += `editBtn-${id}`;
           editBtn.className += 'btn';
           editBtn.className += 'editBtn';
           editBtn.innerText = 'Edit'
-
-
+          //-------------------------------------------------------
+          //Creating delete button
+          const deleteBtn = document.createElement('button');
+          deleteBtn.setAttribute('value', id)
+          deleteBtn.className += `deleteBtn-${id}`;
+          deleteBtn.className += 'btn';
+          deleteBtn.className += 'deleteBtn';
+          deleteBtn.innerText = 'Delete'
+          //-------------------------------------------------------
+          //Creating edit cancel button
+          const editCancelBtn = document.createElement('button');
+          editCancelBtn.setAttribute('value', id)
+          editCancelBtn.className += `editCancelBtn-${id}`;
+          editCancelBtn.className += 'btn';
+          editCancelBtn.className += 'editCancelBtn';
+          editCancelBtn.innerText = 'Cancel'
+          //-------------------------------------------------------
+          //Creating edit submit button
+          const editSubmitBtn = document.createElement('button');
+          editSubmitBtn.setAttribute('value', id)
+          editSubmitBtn.className += `editSubmitBtn-${id}`;
+          editSubmitBtn.className += 'btn';
+          editSubmitBtn.className += 'editSubmitBtn';
+          editSubmitBtn.innerText = 'Submit'
+          //-------------------------------------------------------
+          
+          // EventListener for edit button
           editBtn.forEach(btns => {
             btns.addEventListener("click", event => {
               const commentBody = event.target.parentElement.previousSibling.previousSibling
@@ -113,19 +144,9 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
                   event.preventDefault()
             })
             })
+          //-------------------------------------------------------
 
-
-
-          const deleteBtn = document.createElement('button');
-          deleteBtn.setAttribute('value', id)
-          deleteBtn.className += `deleteBtn-${id}`;
-          deleteBtn.className += 'btn';
-          deleteBtn.className += 'deleteBtn';
-          deleteBtn.innerText = 'Delete'
-
-
-
-
+          // Event Listner for delete button  
             deleteBtn.addEventListener("click", event => {
               const commentBody = event.target.parentElement.previousSibling.previousSibling
               event.target.hidden= true
@@ -136,6 +157,32 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
               event.preventDefault()
 
             })
+          //-------------------------------------------------------
+          // Event Listner for edit cancel button  
+            editCancelBtn.addEventListener("click", event => {
+              const commentBody = event.target.parentElement.previousSibling.previousSibling
+              event.target.hidden= true
+              event.target.nextSibling.hidden= true
+              event.target.previousSibling.hidden= false
+              event.target.previousSibling.previousSibling.hidden= false
+              commentBody.setAttribute("contenteditable","false")
+              event.preventDefault()
+            })
+          //-------------------------------------------------------
+
+          // Event Listner for edit submit button  
+            editSubmitBtn.addEventListener("click", event => {
+              const commentBody = event.target.parentElement.previousSibling.previousSibling
+              event.target.hidden= true
+              event.target.previousSibling.hidden= true
+              event.target.previousSibling.previousSibling.hidden= false
+              event.target.previousSibling.previousSibling.previousSibling.hidden= false
+              commentBody.setAttribute("contenteditable","false")
+              event.preventDefault()
+            })
+
+
+
 
           //--------------------------------------------------------------------
           const commentUserInfo = document.createElement("div")
@@ -151,44 +198,6 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           commentButtons.appendChild(commentContent);
           commentList.appendChild(commentContent)
           //---------------------------------------------------------------------
-          const editCancelBtn = document.createElement('button');
-          editCancelBtn.setAttribute('value', id)
-          editCancelBtn.className += `editCancelBtn-${id}`;
-          editCancelBtn.className += 'btn';
-          editCancelBtn.className += 'editCancelBtn';
-          editCancelBtn.innerText = 'Cancel'
-
-
-            editCancelBtn.addEventListener("click", event => {
-              const commentBody = event.target.parentElement.previousSibling.previousSibling
-              event.target.hidden= true
-              event.target.nextSibling.hidden= true
-              event.target.previousSibling.hidden= false
-              event.target.previousSibling.previousSibling.hidden= false
-              commentBody.setAttribute("contenteditable","false")
-              event.preventDefault()
-            })
-
-
-
-          const editSubmitBtn = document.createElement('button');
-          editSubmitBtn.setAttribute('value', id)
-          editSubmitBtn.className += `editSubmitBtn-${id}`;
-          editSubmitBtn.className += 'btn';
-          editSubmitBtn.className += 'editSubmitBtn';
-          editSubmitBtn.innerText = 'Submit'
-
-
-            editSubmitBtn.addEventListener("click", event => {
-              const commentBody = event.target.parentElement.previousSibling.previousSibling
-              event.target.hidden= true
-              event.target.previousSibling.hidden= true
-              event.target.previousSibling.previousSibling.hidden= false
-              event.target.previousSibling.previousSibling.previousSibling.hidden= false
-              commentBody.setAttribute("contenteditable","false")
-              event.preventDefault()
-            })
-
 
 
           commentButtons.appendChild(editBtn);
@@ -197,6 +206,14 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           editCancelBtn.hidden= true
           commentButtons.appendChild(editSubmitBtn);
           editSubmitBtn.hidden= true
+
+
+
+
+
+
+
+
 
         } catch (e) {
           console.log("Failed to fetch comments", e);
