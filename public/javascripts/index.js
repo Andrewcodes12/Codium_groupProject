@@ -17,10 +17,10 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           const storyId = event.target.dataset.storyId;
           newDivArea.innerText = userInput;
           newDivArea.classList.add('commentContent')
-          commentButtons.appendChild(commentContent);
-          commentList.appendChild(commentContent)
           const body = { body: userInput, _csrf }
-         
+
+
+
 
 
             try {
@@ -34,14 +34,14 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
                 const commentData = await commentResponse.json();
                 console.log(commentData, 'this was logged')
 
-                
-                const { 
+
+                const {
                   id,
                   userId,
                   firstName,
                   updatedAt,
                 } = commentData
-                
+
           const editBtn = document.createElement('button');
           editBtn.setAttribute('value', id)
           editBtn.className += `editBtn-${id}`;
@@ -49,21 +49,23 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           editBtn.className += 'editBtn';
           editBtn.innerText = 'Edit'
 
+          const commentContentNotADiv = document.querySelector(".commentContent")
           editBtn.addEventListener("click", async (event) => {
             editBtn.hidden= true
             deleteBtn.hidden= true
             editCancelBtn.hidden= false
             editSubmitBtn.hidden= false
+            commentContentNotADiv.setAttribute("contenteditable","true")
           })
 
-                
+
           const deleteBtn = document.createElement('button');
           deleteBtn.setAttribute('value', id)
           deleteBtn.className += `deleteBtn-${id}`;
           deleteBtn.className += 'btn';
           deleteBtn.className += 'deleteBtn';
           deleteBtn.innerText = 'Delete'
-          
+
           deleteBtn.addEventListener("click", async (event) => {
             editBtn.hidden= true
             deleteBtn.hidden= true
@@ -73,21 +75,16 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           //--------------------------------------------------------------------
           const commentUserInfo = document.createElement("div")
           commentUserInfo.classList.add('commentUserInfo')
-          commentUserInfo.appendChild(newTextArea)
+          commentUserInfo.appendChild(newDivArea)
 
           const commentButtons = document.createElement("div")
           commentButtons.classList.add('commentButtons');
-          commentButtons.appendChild(editBtn);
-          commentButtons.appendChild(deleteBtn);
-          commentButtons.appendChild(editCancelBtn);
-          editCancelBtn.hidden= true
-          commentButtons.appendChild(editSubmitBtn);
-          editSubmitBtn.hidden= true
 
           const commentContent = document.createElement("div")
           commentContent.classList.add('commentContent');
-  
-          commentButtons.appendChild(commentContent)
+
+          commentButtons.appendChild(commentContent);
+          commentList.appendChild(commentContent)
           //---------------------------------------------------------------------
           const editCancelBtn = document.createElement('button');
           editCancelBtn.setAttribute('value', id)
@@ -103,7 +100,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
             editSubmitBtn.hidden= true
           })
 
-          
+
           const editSubmitBtn = document.createElement('button');
           editSubmitBtn.setAttribute('value', id)
           editSubmitBtn.className += `editSubmitBtn-${id}`;
@@ -117,23 +114,28 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
             editCancelBtn.hidden= true
             editSubmitBtn.hidden= true
           })
-          
-          
-          
-          
 
-          newTextArea.appendChild(editBtn);
-          newTextArea.appendChild(deleteBtn);
-          newTextArea.appendChild(editCancelBtn);
+
+
+
+
+          // newDivArea.appendChild(editBtn);
+          // newDivArea.appendChild(deleteBtn);
+          // newDivArea.appendChild(editCancelBtn);
+          // editCancelBtn.hidden= true
+          // newDivArea.appendChild(editSubmitBtn);
+          // editSubmitBtn.hidden= true
+
+          commentButtons.appendChild(editBtn);
+          commentButtons.appendChild(deleteBtn);
+          commentButtons.appendChild(editCancelBtn);
           editCancelBtn.hidden= true
-          newTextArea.appendChild(editSubmitBtn);
+          commentButtons.appendChild(editSubmitBtn);
           editSubmitBtn.hidden= true
-          
 
         } catch (e) {
-            console.log("Failed to fetch comments", e);
+          console.log("Failed to fetch comments", e);
         }
-        });
-      }
-    })
-    
+      });
+    }
+  })
