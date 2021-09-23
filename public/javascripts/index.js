@@ -7,7 +7,10 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
 
     if (commentBtn) {
       commentBtn.addEventListener("click", async event => {
+          
+          // if(){
 
+          // }
           const _csrf = document.querySelector('#token').value;
           event.preventDefault();
           const userInput = document.querySelector('.form-control').value
@@ -33,6 +36,28 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
             } catch (e) {
                 console.log("Failed to fetch comments", e);
             }
+
+
+          const editBtn = document.createElement('button');
+          const deleteBtn = document.createElement('button');
+          const editCancelBtn = document.createElement('button');
+          const editSubmitBtn = document.createElement('button');
+          editBtn.classList.add('editButton');
+          editBtn.innerText = 'Edit'
+
+          deleteBtn.classList.add('deleteButton'); 
+          deleteBtn.innerText = 'Delete' 
+
+          editCancelBtn.classList.add('editCancelButton');
+          editCancelBtn.innerText = 'Cancel'  
+
+          editSubmitBtn.classList.add('editSubmitButton');  
+          editSubmitBtn.innerText = 'Submit'
+
+          newTextArea.appendChild(editBtn);
+          newTextArea.appendChild(deleteBtn);
+          newTextArea.appendChild(editCancelBtn);
+          newTextArea.appendChild(editSubmitBtn);
 
         
       });
