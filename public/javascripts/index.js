@@ -13,10 +13,12 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           event.preventDefault();
           const userInput = document.querySelector('.form-control').value
           document.querySelector('.form-control').value = '';
-          const newTextArea = document.createElement('textarea');
+          const newDivArea = document.createElement('div');
           const storyId = event.target.dataset.storyId;
-          newTextArea.innerText = userInput;
-          commentList.appendChild(newTextArea);
+          newDivArea.innerText = userInput;
+          newDivArea.classList.add('commentContent')
+          commentButtons.appendChild(commentContent);
+          commentList.appendChild(commentContent)
           const body = { body: userInput, _csrf }
          
 
@@ -68,8 +70,25 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
             editCancelBtn.hidden= false
             editSubmitBtn.hidden= false
           })
-          
+          //--------------------------------------------------------------------
+          const commentUserInfo = document.createElement("div")
+          commentUserInfo.classList.add('commentUserInfo')
+          commentUserInfo.appendChild(newTextArea)
 
+          const commentButtons = document.createElement("div")
+          commentButtons.classList.add('commentButtons');
+          commentButtons.appendChild(editBtn);
+          commentButtons.appendChild(deleteBtn);
+          commentButtons.appendChild(editCancelBtn);
+          editCancelBtn.hidden= true
+          commentButtons.appendChild(editSubmitBtn);
+          editSubmitBtn.hidden= true
+
+          const commentContent = document.createElement("div")
+          commentContent.classList.add('commentContent');
+  
+          commentButtons.appendChild(commentContent)
+          //---------------------------------------------------------------------
           const editCancelBtn = document.createElement('button');
           editCancelBtn.setAttribute('value', id)
           editCancelBtn.className += `editCancelBtn-${id}`;
