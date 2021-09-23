@@ -28,6 +28,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
               
                 // Converts to JSON
                 const commentData = await commentResponse.json();
+                console.log(commentData, 'this was logged')
  
             } catch (e) {
                 console.log("Failed to fetch comments", e);

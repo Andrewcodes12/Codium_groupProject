@@ -4,7 +4,7 @@ const { requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const { csrfProtection, asyncHandler } = require('./utils');
 
-const apiRouter = express.Router();
+const router = express.Router();
 
 const checkPermissions = (story, currentUser) => {
   if (story.userId !== currentUser.id) {
@@ -39,23 +39,22 @@ router.get(
   })
 );
 
-router.post(
-  "/stories/:id(\\d+)/comments",
-  requireAuth,
-  commentValidator,
-  asyncHandler(async (req, res) => {
-    const { body } = req.body;
-    const newComment = await Comment.create({ body });
-    res.status(201).json({ newComment });
-  })
-);
+// router.post(
+//   "/stories/:id(\\d+)/comments",
+//   requireAuth,
+//   commentValidator,
+//   asyncHandler(async (req, res) => {
+//     const { body } = req.body;
+//     const newComment = await Comment.create({ body });
+//     res.status(201).json({ newComment });
+//   })
+// );
 
 
 router.put(
   "/comments/:id(\\d+)",
   requireAuth,
   commentValidator,
-  handleValidationErrors,
   asyncHandler(async (req, res, next) => {
     const commentId = parseInt(req.params.id, 8);
     const comment = await Comment.findByPk(commentId);
@@ -68,7 +67,7 @@ router.put(
     }
 }))
 
-tweetsRouter.delete(
+router.delete(
   "/comments/:id(\\d+)",
   requireAuth,
   asyncHandler(async (req, res, next) => {
