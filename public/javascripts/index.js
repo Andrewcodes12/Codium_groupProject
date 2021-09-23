@@ -1,5 +1,3 @@
-
-
 window.addEventListener("DOMContentLoaded", async (event) =>{
     const commentList = document.querySelector('.commentList')
     const commentBtn = document.querySelector('#submitBtn')
@@ -7,7 +5,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
 
     if (commentBtn) {
       commentBtn.addEventListener("click", async event => {
-          
+
           // if(){
 
           // }
@@ -15,51 +13,129 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           event.preventDefault();
           const userInput = document.querySelector('.form-control').value
           document.querySelector('.form-control').value = '';
-          const newTextArea = document.createElement('p');
+          const newDivArea = document.createElement('div');
           const storyId = event.target.dataset.storyId;
-          newTextArea.innerText = userInput;
-          commentList.appendChild(newTextArea);
+          newDivArea.innerText = userInput;
+          newDivArea.classList.add('commentContent')
           const body = { body: userInput, _csrf }
-          
+
+
+
+
 
             try {
-                const commentResponse = await fetch(`/stories/${storyId}/comments`, { 
+                const commentResponse = await fetch(`/stories/${storyId}/comments`, {
                   method: "POST",
                   body: JSON.stringify(body),
                   headers: { "Content-Type": "application/json" },
                 });
-              
+
                 // Converts to JSON
                 const commentData = await commentResponse.json();
                 console.log(commentData, 'this was logged')
- 
-            } catch (e) {
-                console.log("Failed to fetch comments", e);
-            }
 
+
+                const {
+                  id,
+                  userId,
+                  firstName,
+                  updatedAt,
+                } = commentData
 
           const editBtn = document.createElement('button');
-          const deleteBtn = document.createElement('button');
-          const editCancelBtn = document.createElement('button');
-          const editSubmitBtn = document.createElement('button');
-          editBtn.classList.add('editButton');
+          editBtn.setAttribute('value', id)
+          editBtn.className += `editBtn-${id}`;
+          editBtn.className += 'btn';
+          editBtn.className += 'editBtn';
           editBtn.innerText = 'Edit'
 
-          deleteBtn.classList.add('deleteButton'); 
-          deleteBtn.innerText = 'Delete' 
+          const commentContentNotADiv = document.querySelector(".commentContent")
+          editBtn.addEventListener("click", async (event) => {
+            editBtn.hidden= true
+            deleteBtn.hidden= true
+            editCancelBtn.hidden= false
+            editSubmitBtn.hidden= false
+            commentContentNotADiv.setAttribute("contenteditable","true")
+          })
 
-          editCancelBtn.classList.add('editCancelButton');
-          editCancelBtn.innerText = 'Cancel'  
 
-          editSubmitBtn.classList.add('editSubmitButton');  
+          const deleteBtn = document.createElement('button');
+          deleteBtn.setAttribute('value', id)
+          deleteBtn.className += `deleteBtn-${id}`;
+          deleteBtn.className += 'btn';
+          deleteBtn.className += 'deleteBtn';
+          deleteBtn.innerText = 'Delete'
+
+          deleteBtn.addEventListener("click", async (event) => {
+            editBtn.hidden= true
+            deleteBtn.hidden= true
+            editCancelBtn.hidden= false
+            editSubmitBtn.hidden= false
+          })
+          //--------------------------------------------------------------------
+          const commentUserInfo = document.createElement("div")
+          commentUserInfo.classList.add('commentUserInfo')
+          commentUserInfo.appendChild(newDivArea)
+
+          const commentButtons = document.createElement("div")
+          commentButtons.classList.add('commentButtons');
+
+          const commentContent = document.createElement("div")
+          commentContent.classList.add('commentContent');
+
+          commentButtons.appendChild(commentContent);
+          commentList.appendChild(commentContent)
+          //---------------------------------------------------------------------
+          const editCancelBtn = document.createElement('button');
+          editCancelBtn.setAttribute('value', id)
+          editCancelBtn.className += `editCancelBtn-${id}`;
+          editCancelBtn.className += 'btn';
+          editCancelBtn.className += 'editCancelBtn';
+          editCancelBtn.innerText = 'Cancel'
+
+          editCancelBtn.addEventListener("click", async (event) => {
+            editBtn.hidden= false
+            deleteBtn.hidden= false
+            editCancelBtn.hidden= true
+            editSubmitBtn.hidden= true
+          })
+
+
+          const editSubmitBtn = document.createElement('button');
+          editSubmitBtn.setAttribute('value', id)
+          editSubmitBtn.className += `editSubmitBtn-${id}`;
+          editSubmitBtn.className += 'btn';
+          editSubmitBtn.className += 'editSubmitBtn';
           editSubmitBtn.innerText = 'Submit'
 
-          newTextArea.appendChild(editBtn);
-          newTextArea.appendChild(deleteBtn);
-          newTextArea.appendChild(editCancelBtn);
-          newTextArea.appendChild(editSubmitBtn);
+          editSubmitBtn.addEventListener("click", async (event) => {
+            editBtn.hidden= false
+            deleteBtn.hidden= false
+            editCancelBtn.hidden= true
+            editSubmitBtn.hidden= true
+          })
 
-        
+
+
+
+
+          // newDivArea.appendChild(editBtn);
+          // newDivArea.appendChild(deleteBtn);
+          // newDivArea.appendChild(editCancelBtn);
+          // editCancelBtn.hidden= true
+          // newDivArea.appendChild(editSubmitBtn);
+          // editSubmitBtn.hidden= true
+
+          commentButtons.appendChild(editBtn);
+          commentButtons.appendChild(deleteBtn);
+          commentButtons.appendChild(editCancelBtn);
+          editCancelBtn.hidden= true
+          commentButtons.appendChild(editSubmitBtn);
+          editSubmitBtn.hidden= true
+
+        } catch (e) {
+          console.log("Failed to fetch comments", e);
+        }
       });
-  }
-})
+    }
+  })
