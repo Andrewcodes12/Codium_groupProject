@@ -104,13 +104,14 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
 
         const storyId = event.target.dataset.storyId;
         const body = { body: userInput, _csrf }
-
+        if(userInput === '') return
         try {
           const commentResponse = await fetch(`/stories/${storyId}/comments`, {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" },
           });
+          
 
           const commentData = await commentResponse.json();
           const { id, userId, firstName, updatedAt } = commentData
