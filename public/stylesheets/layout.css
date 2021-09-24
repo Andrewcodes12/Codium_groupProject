@@ -1,6 +1,9 @@
+html,body {
+    height: 100%;
+}
+
 body {
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(163,163,163,1) 100%, rgba(0,212,255,1) 100%);
+    background: black;
 }
 
 
@@ -11,7 +14,7 @@ body {
 }
 
 .container {
-    height: ;
+    height: 100%;
 }
 
 
@@ -24,10 +27,11 @@ body {
 
 .navbar {
 display:flex;
+width: 100%;
 flex-direction: row;
 justify-content: space-between;
 background-color:#209CEE;
-height: 75px;
+
 }
 
 
