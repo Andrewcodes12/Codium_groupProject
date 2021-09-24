@@ -266,7 +266,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
 
 
               const bodyText = commentBody.childNodes[0].nodeValue
-              
+
               try {
 
                 const res = await fetch(`/api/comments/${id}/edit`, {
@@ -308,7 +308,8 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
             editSubmitBtn.hidden= true
 
 
-
+            //---------------------------------------------------------------------
+            
 
 
 

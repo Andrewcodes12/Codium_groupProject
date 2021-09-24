@@ -46,9 +46,9 @@ const storyValidators = [
 const commentValidator = [
   check('body')
       .exists({ checkFalsey: true })
-      .withMessage('Comment must contain written content.')
       .isLength({ min: 1 })
-      
+      .withMessage('Comment must contain written content.')
+
 ]
 
 router.post('/new', requireAuth, csrfProtection, storyValidators, asyncHandler(async(req, res, next) => {
@@ -87,7 +87,7 @@ router.post('/new', requireAuth, csrfProtection, storyValidators, asyncHandler(a
 
 }));
 
-router.get('/:id(\\d+)', csrfProtection, 
+router.get('/:id(\\d+)', csrfProtection,
   asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await Story.findByPk(storyId,{
@@ -188,14 +188,14 @@ router.get('/edit/:id(\\d+)',requireAuth, csrfProtection,
 
 
   router.post('/:id(\\d+)/comments', requireAuth, csrfProtection, commentValidator, asyncHandler(async (req, res) => {
-    const { body } = req.body; 
+    const { body } = req.body;
     const theStoryId = parseInt(req.params.id, 10);
     const comment = await Comment.build({ body, userId: req.session.auth.userId, storyId: theStoryId })
     const validationErrors = validationResult(req);
-  
+
     const user = await User.findByPk(req.session.auth.userId);
     const { firstName, id: userId } = user;
-  
+
     if (validationErrors.isEmpty()) {
       await comment.save();
       const { id, updatedAt } = comment;
@@ -214,8 +214,8 @@ router.get('/edit/:id(\\d+)',requireAuth, csrfProtection,
     }
   }));
 
-  
-  
+
+
 
 /* TODO:
 styling
