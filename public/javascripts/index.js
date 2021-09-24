@@ -23,11 +23,13 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
       btns.addEventListener("click", async (event) => {
         const commentBody = event.target.parentElement.previousSibling.previousSibling
         event.target.hidden= true
+        event.target.previousSibling.hidden= true
         event.target.nextSibling.hidden= true
-        event.target.nextSibling.nextSibling.hidden= false
-        event.target.nextSibling.nextSibling.hidden= false
+        event.target.nextSibling.nextSibling.hidden= true
         commentBody.setAttribute("contenteditable","true")
+        commentBody.remove()
         event.preventDefault()
+
 
 
 
@@ -56,9 +58,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
             method: "DELETE",
             // body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" },
-          }).then(()=>
-          console.log("removed")
-          )
+          })
 
 
         } catch (e) {
@@ -224,11 +224,12 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
               deleteBtn.hidden= true
               editBtn.hidden= false
               commentBody.setAttribute("contenteditable","false")
+              commentBody.remove()
               event.preventDefault()
 
               try {
 
-                const res = await fetch(`api/comments/${id}/delete`, {
+                const res = await fetch(`/api/comments/${id}/delete`, {
                   method: "DELETE",
                   body: JSON.stringify(body),
                   headers: { "Content-Type": "application/json" },
@@ -237,6 +238,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
               } catch (e) {
                   console.log("Failed to fetch comments", e);
               }
+
 
             })
             //-------------------------------------------------------
@@ -262,13 +264,14 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
               commentBody.setAttribute("contenteditable","false")
               event.preventDefault()
 
-              const apiPath = `api/comments/${id}/edit`
 
+              const bodyText = commentBody.childNodes[0].nodeValue
+              
               try {
 
                 const res = await fetch(`/api/comments/${id}/edit`, {
                   method: "POST",
-                  body: JSON.stringify(body),
+                  body: JSON.stringify({body:bodyText}),
                   headers: { "Content-Type": "application/json" },
                 });
 
