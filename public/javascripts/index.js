@@ -1,26 +1,25 @@
 window.addEventListener("DOMContentLoaded", async (event) =>{
     const commentList = document.querySelector('.commentList')
     const commentBtn = document.querySelector('#submitBtn')
-
     // Event Listner for PUG edit button
     const editBtnPug = document.querySelectorAll('.editBtn')
     editBtnPug.forEach(btns => {
-      btns.addEventListener("click", event => {
+      btns.addEventListener("click", async event => {
         const commentBody = event.target.parentElement.previousSibling.previousSibling
-            event.target.hidden= true
-            event.target.nextSibling.hidden= true
-            event.target.nextSibling.nextSibling.hidden= false
-            event.target.nextSibling.nextSibling.nextSibling.hidden= false
-            commentBody.setAttribute("contenteditable","true")
-            event.preventDefault()
+        event.target.hidden= true
+        event.target.nextSibling.hidden= true
+        event.target.nextSibling.nextSibling.hidden= false
+        event.target.nextSibling.nextSibling.nextSibling.hidden= false
+        commentBody.setAttribute("contenteditable","true")
+        event.preventDefault()
       })
     })
     //---------------------------------------------------------------------------------------------------------------
-
+    
     // Event Listner for PUG delete button
-    const DeleteBtnPug = document.querySelectorAll('.deleteBtn')
-    DeleteBtnPug.forEach(btns => {
-      btns.addEventListener("click", event => {
+    const deleteBtnPug = document.querySelectorAll('.deleteBtn')
+    deleteBtnPug.forEach(btns => {
+      btns.addEventListener("click", async (event) => {
         const commentBody = event.target.parentElement.previousSibling.previousSibling
         event.target.hidden= true
         event.target.nextSibling.hidden= true
@@ -28,6 +27,40 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         event.target.nextSibling.nextSibling.hidden= false
         commentBody.setAttribute("contenteditable","true")
         event.preventDefault()
+
+
+
+        // const _csrf = document.querySelector('#token').value;
+        
+
+        // const userInput = document.querySelector('.form-control').value
+        // commentBody.innerText = userInput;
+        
+
+        
+        
+        
+        
+        
+        
+        const commentId = event.target.dataset.commentId;
+        // const body = { body: userInput, _csrf }
+
+
+
+
+        try {
+          
+          const res = await fetch(`api/comments/${commentId}/delete`, {
+            method: "DELETE",
+            body: JSON.stringify(body),
+            headers: { "Content-Type": "application/json" },
+          });
+
+  
+        } catch (e) {
+            console.log("Failed to fetch comments", e);
+        }
       })
     })
     //---------------------------------------------------------------------------------------------------------------
@@ -35,7 +68,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
     // Event Listner for PUG  eidt cancel button
     const editCancelBtnPug = document.querySelectorAll('.editCancelBtn')
     editCancelBtnPug.forEach(btns => {
-      btns.addEventListener("click", event => {
+      btns.addEventListener("click", async (event) => {
         const commentBody = event.target.parentElement.previousSibling.previousSibling
         event.target.hidden= true
         event.target.nextSibling.hidden= true
@@ -50,7 +83,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
     // Event Listner for PUG edit submit button
     const editSubmitBtnPug = document.querySelectorAll('.editSubmitBtn')
     editSubmitBtnPug.forEach(btns => {
-      btns.addEventListener("click", event => {
+      btns.addEventListener("click", async (event) => {
         const commentBody = event.target.parentElement.previousSibling.previousSibling
         event.target.hidden= true
         event.target.previousSibling.hidden= true
@@ -58,13 +91,27 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         event.target.previousSibling.previousSibling.previousSibling.hidden= false
         commentBody.setAttribute("contenteditable","false")
         event.preventDefault()
+        
+        const commentId = event.target.dataset.commentId;
+        try {
+                
+          const res = await fetch(`api/comments/${commentId}/edit`, {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: { "Content-Type": "application/json" },
+          });
+          
+
+        } catch (e) {
+            console.log("Failed to fetch comments", e);
+        }
       })
     })
     //---------------------------------------------------------------------------------------------------------------
 
 
     if (commentBtn) {
-      commentBtn.addEventListener("click", async event => {
+      commentBtn.addEventListener("click", async (event) => {
 
         event.preventDefault();
         const _csrf = document.querySelector('#token').value;
@@ -134,7 +181,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           editSubmitBtn.innerText = 'Submit'
           //-------------------------------------------------------
          
-          //Create
+          //Create divs for comment
           const commentPost = document.createElement('div');
           commentPost.className += `comment-${id}`;     
 
@@ -151,51 +198,77 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           
           // EventListener for edit button
           
-          editBtn.addEventListener("click", event => {
-              const commentBody = event.target.parentElement.previousSibling.previousSibling
-                  event.target.hidden= true
-                  event.target.nextSibling.hidden= true
-                  event.target.nextSibling.nextSibling.hidden= false
-                  event.target.nextSibling.nextSibling.nextSibling.hidden= false
-                  commentBody.setAttribute("contenteditable","true")
-                  event.preventDefault()
+          editBtn.addEventListener("click", async (event) => {
+              // const commentBody = event.target.parentElement.previousSibling.previousSibling
+              editSubmitBtn.hidden= false
+              editCancelBtn.hidden= true
+              deleteBtn.hidden= true
+              editBtn.hidden= false
+              commentBody.setAttribute("contenteditable","true")
+              event.preventDefault()
             })
             
           //-------------------------------------------------------
           
           // Event Listner for delete button  
-          deleteBtn.addEventListener("click", event => {
-              const commentBody = event.target.parentElement.previousSibling.previousSibling
-              event.target.hidden= true
-              event.target.nextSibling.hidden= true
-              event.target.nextSibling.nextSibling.hidden= false
-              event.target.nextSibling.nextSibling.nextSibling.hidden= false
+          deleteBtn.addEventListener("click", async (event) => {
+              // const commentBody = event.target.parentElement.previousSibling.previousSibling
+              editSubmitBtn.hidden= false
+              editCancelBtn.hidden= true
+              deleteBtn.hidden= true
+              editBtn.hidden= false
               commentBody.setAttribute("contenteditable","false")
               event.preventDefault()
+
+              try {
+                
+                const res = await fetch(`api/comments/${id}/delete`, {
+                  method: "DELETE",
+                  body: JSON.stringify(body),
+                  headers: { "Content-Type": "application/json" },
+                });
+
+              } catch (e) {
+                  console.log("Failed to fetch comments", e);
+              }
               
             })
             //-------------------------------------------------------
             // Event Listner for edit cancel button  
-            editCancelBtn.addEventListener("click", event => {
-              const commentBody = event.target.parentElement.previousSibling.previousSibling
-              event.target.hidden= true
-              event.target.nextSibling.hidden= true
-              event.target.previousSibling.hidden= false
-              event.target.previousSibling.previousSibling.hidden= false
+            editCancelBtn.addEventListener("click", async (event) => {
+              // const commentBody = event.target.parentElement.previousSibling.previousSibling
+              editSubmitBtn.hidden= true
+              editCancelBtn.hidden= true
+              deleteBtn.hidden= false
+              editBtn.hidden= false
               commentBody.setAttribute("contenteditable","false")
               event.preventDefault()
             })
             //-------------------------------------------------------
             
             // Event Listner for edit submit button  
-            editSubmitBtn.addEventListener("click", event => {
-              const commentBody = event.target.parentElement.previousSibling.previousSibling
-              event.target.hidden= true
-              event.target.previousSibling.hidden= true
-              event.target.previousSibling.previousSibling.hidden= false
-              event.target.previousSibling.previousSibling.previousSibling.hidden= false
+            editSubmitBtn.addEventListener("click", async (event) => {
+              // const commentBody = event.target.parentElement.previousSibling.previousSibling
+              editSubmitBtn.hidden= true
+              editCancelBtn.hidden= true
+              deleteBtn.hidden= false
+              editBtn.hidden= false
               commentBody.setAttribute("contenteditable","false")
               event.preventDefault()
+
+              const apiPath = `api/comments/${id}/edit`
+
+              try {
+                
+                const res = await fetch(`/api/comments/${id}/edit`, {
+                  method: "POST",
+                  body: JSON.stringify(body),
+                  headers: { "Content-Type": "application/json" },
+                });
+
+              } catch (e) {
+                  console.log("Failed to fetch comments", e);
+              }
             })
             
             

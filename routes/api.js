@@ -27,17 +27,17 @@ const commentNotFoundError = (id) => {
   return err;
 }
 
-router.get(
-  "/stories/:id(\\d+)/comments",
-  asyncHandler(async (req, res, next) => {
-    const comments = await Comment.findAll();
+// router.get(
+//   "/stories/:id(\\d+)/comments",
+//   asyncHandler(async (req, res, next) => {
+//     const comments = await Comment.findAll();
 
     
-    res.json({ comments });
+//     res.json({ comments });
 
     
-  })
-);
+//   })
+// );
 
 // router.post(
 //   "/stories/:id(\\d+)/comments",
@@ -51,8 +51,8 @@ router.get(
 // );
 
 
-router.put(
-  "/comments/:id(\\d+)",
+router.post(
+  "/comments/:id(\\d+)/edit",
   requireAuth,
   commentValidator,
   asyncHandler(async (req, res, next) => {
@@ -68,7 +68,7 @@ router.put(
 }))
 
 router.delete(
-  "/comments/:id(\\d+)",
+  "/comments/:id(\\d+)/delete",
   requireAuth,
   asyncHandler(async (req, res, next) => {
     const commentId = parseInt(req.params.id, 10);
