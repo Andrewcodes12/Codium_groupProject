@@ -1,3 +1,4 @@
+
 window.addEventListener("DOMContentLoaded", async (event) =>{
     const commentList = document.querySelector('.commentList')
     const commentBtn = document.querySelector('#submitBtn')
@@ -51,11 +52,13 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
 
         try {
 
-          const res = await fetch(`api/comments/${commentId}/delete`, {
+          const res = await fetch(`/api/comments/${commentId}/delete`, {
             method: "DELETE",
-            body: JSON.stringify(body),
+            // body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" },
-          })
+          }).then(()=>
+          console.log("removed")
+          )
 
 
         } catch (e) {
@@ -93,9 +96,12 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         event.preventDefault()
 
         const commentId = event.target.dataset.commentId;
+        const body = {
+          body: commentBody.innerText
+        }
         try {
 
-          const res = await fetch(`api/comments/${commentId}/edit`, {
+          const res = await fetch(`/api/comments/${commentId}/edit`, {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" },

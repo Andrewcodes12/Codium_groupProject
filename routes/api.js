@@ -32,10 +32,10 @@ const commentNotFoundError = (id) => {
 //   asyncHandler(async (req, res, next) => {
 //     const comments = await Comment.findAll();
 
-    
+
 //     res.json({ comments });
 
-    
+
 //   })
 // );
 
@@ -56,11 +56,11 @@ router.post(
   requireAuth,
   commentValidator,
   asyncHandler(async (req, res, next) => {
-    const commentId = parseInt(req.params.id, 8);
+    const commentId = parseInt(req.params.id, 10);
     const comment = await Comment.findByPk(commentId);
-
+    console.log(comment)
     if (comment) {
-      await comment.update({ message: req.body.message });
+      await comment.update({ body: req.body.body });
       res.json({ comment });
     } else {
       next(commentNotFoundError(commentId));
