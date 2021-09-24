@@ -3,6 +3,11 @@ extends layout.pug
 include utils.pug
 
 block content
+  p
+  form(action='/users/login/demoUser' method='post')
+    div(class='demoBtn')
+      button(type='submit' class='btn btn-demo') Demo User
+
   +validationErrorSummary(errors)
   form(action='/users/login' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
@@ -11,5 +16,6 @@ block content
     div(class='py-4')
       button(type='submit' class='btn btn-primary') Login
       a(href='/' class='btn btn-warning ml-2') Cancel
+
   div
     p: a(href='/users/signup') Don't have an account?

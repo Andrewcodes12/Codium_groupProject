@@ -54,10 +54,6 @@ const userValidators = [
     })
 ];
 
-//redundant
-// router.get('/', asyncHandler( async(req, res, next) => {
-//   res.send('respond with a resource');
-// }));
 
 router.get('/login', csrfProtection, asyncHandler( async(req, res) => {
   res.render('login', {
@@ -122,10 +118,10 @@ router.get('/signup', csrfProtection, userValidators, asyncHandler( async(req, r
   });
 }));
 
-router.post('/logout', (req, res) => {
+router.post('/logout',asyncHandler (async(req, res) => {
   logoutUser(req, res)
-  res.redirect("/")
-})
+  return req.session.save(() => res.redirect('/'))
+}))
 
 
 router.post('/signup', csrfProtection, userValidators,
@@ -160,6 +156,13 @@ router.post('/signup', csrfProtection, userValidators,
         csrfToken: req.csrfToken(),
       });
     }
+}));
+
+
+router.post('/login/demoUser', asyncHandler( async(req, res) => {
+  const demoUser = await User.findByPk(1)
+  loginUser(req, res, demoUser);
+  return req.session.save(() => res.redirect('/'));
 }));
 
 
