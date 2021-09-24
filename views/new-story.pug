@@ -8,19 +8,19 @@ block content
   h2 New Story
   form(method="post" action="/stories/new")
     input(type="hidden" name="_csrf" value=csrfToken)
-    div
+    div.title
       label(for="title") Title
       input(type="text" name="title" required)
-    div
+    div.subtitle
       label(for="subtitle") subtitle
       input(type="text" name="subtitle" required)
-    div
+    div.body
       label(for="body") Body
       textarea(name="body")
-    div
+    div.topic
       label(for="topic") Topic
       select(name="topic" required)
         each topic in topics
           option(value=topic.id)= topic.name
-    div
+    div.submit
       button(type="submit") Submit
