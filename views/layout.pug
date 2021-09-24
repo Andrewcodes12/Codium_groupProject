@@ -3,17 +3,25 @@ html
   head
       block head
         title="Codium: The People's App"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel="stylesheet" href="/stylesheets/index.css")
+        link(rel="stylesheet" href="/stylesheets/layout.css")
+        link(rel="stylesheet" href="/stylesheets/login.css")
+        link(rel="stylesheet" href="/stylesheets/new-story.css")
+        link(rel="stylesheet" href="/stylesheets/signup.css")
+        link(rel="stylesheet" href="/stylesheets/story-delete.css")
+        link(rel="stylesheet" href="/stylesheets/story-edit.css")
+        link(rel="stylesheet" href="/stylesheets/story-form-field.css")
+        link(rel="stylesheet" href="/stylesheets/story.css")
+
   body
     nav(class='navbar navbar-expand-lg navbar-dark bg-primary')
-      a(class='navbar-brand' href='/') Codium
-      button(class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarText' aria-controls='navbarText' aria-expanded='false' aria-label='Toggle navigation')
-        span(class='navbar-toggler-icon')
+      a(class='navbar-brand' href='/')
+        img(src="/images/faviconLogo.png" class="logo")
+      span(class="Codium-header") Codium
       div(class='collapse navbar-collapse' id='navbarText')
         ul(class='navbar-nav mr-auto')
-          li(class='nav-item'): a(class='nav-link' href='/') Stories
         if locals.authenticated
-          span(class='navbar-text px-4') Welcome #{user.firstName}!
+          span(class='navbar-text px-4' id="usersName") Welcome #{user.firstName}!
           form(class='form-inline pr-4' action='/users/logout' method='post')
             button(class='btn btn-sm btn-warning' type='submit') Logout
         else
@@ -23,10 +31,10 @@ html
     .container
       h2(class='py-4') #{title}
       block content
-
-
-  //- footer
-  //-   img(src="/images/github.png" alt="GitHub Icon" class="github")
-  //-   a(href="https://github.com/hgerdes" class="Harrison") Harrison Gerdes
-  //-   a(href="https://github.com/noahSharretts" class="Noah") Noah Sharretts
-  //-   a(href="https://github.com/Andrewcodes12" class="Andrew") Andrew Fava
+      block footer
+        div.footerbar
+          div.githubLinks
+            img(src="/images/github.png" alt="GitHub Icon" class="github")
+            a(href="https://github.com/hgerdes" class="Harrison") Harrison Gerdes
+            a(href="https://github.com/noahSharretts" class="Noah") Noah Sharretts
+            a(href="https://github.com/Andrewcodes12" class="Andrew") Andrew Fava

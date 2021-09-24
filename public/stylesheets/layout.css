@@ -1,0 +1,48 @@
+h1 {
+    color: #555555;
+}
+
+body{
+    background-color: #FAF9F6;
+}
+
+
+.github{
+    max-width:100%;
+    height:50px
+
+}
+
+
+.footerbar{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background-color:#209CEE;
+}
+
+.navbar {
+display:flex;
+flex-direction: row;
+justify-content: space-between;
+background-color:#209CEE;
+height: 75px;
+}
+
+
+.navbar-nav {
+    padding: 3px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.logo{
+
+}
+
+.Codium-header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+}
