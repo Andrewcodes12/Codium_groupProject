@@ -53,15 +53,8 @@ const userValidators = [
       return true;
     })
 ];
-
-
-router.get('/login', csrfProtection, asyncHandler( async(req, res) => {
-  res.render('login', {
-    title: 'Login',
-    csrfToken: req.csrfToken()
-  })
-}));
-
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+// Checking login 
 const loginValidators = [
   check('email')
     .exists({ checkFalsy: true })
@@ -70,7 +63,16 @@ const loginValidators = [
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Password'),
 ];
-
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+// Route to get the login form
+router.get('/login', csrfProtection, asyncHandler( async(req, res) => {
+  res.render('login', {
+    title: 'Login',
+    csrfToken: req.csrfToken()
+  })
+}));
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+// Route for logging in the user if their creditonals are correct
 router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, res) => {
   const {
     email,
@@ -108,7 +110,8 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler( async(req, 
   });
 
 }));
-
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+// Route for gettting the signup form
 router.get('/signup', csrfProtection, userValidators, asyncHandler( async(req, res) => {
   const user = await User.build();
   res.render('signup', {
@@ -117,53 +120,57 @@ router.get('/signup', csrfProtection, userValidators, asyncHandler( async(req, r
    csrfToken: req.csrfToken(),
   });
 }));
-
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+// Route for logging-out a user
 router.post('/logout',asyncHandler (async(req, res) => {
   logoutUser(req, res)
   return req.session.save(() => res.redirect('/'))
 }))
-
-
-router.post('/signup', csrfProtection, userValidators,
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+// Route for posting the the signup form to teh database
+router.post('/signup',
+  csrfProtection,
+  userValidators,
   asyncHandler(async (req, res) => {
-    const {
-      email,
-      firstName,
-      lastName,
-      password,
-    } = req.body;
+      const {
+        email,
+        firstName,
+        lastName,
+        password,
+      } = req.body;
 
-    const user = User.build({
-      email,
-      firstName,
-      lastName,
-    });
-
-    const validatorErrors = validationResult(req);
-
-    if (validatorErrors.isEmpty()) {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      user.hashedPassword = hashedPassword;
-      await user.save();
-      loginUser(req, res, user);
-      res.redirect('/');
-    } else {
-      const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('signup', {
-        title: 'Signup',
-        user,
-        errors,
-        csrfToken: req.csrfToken(),
+      const user = User.build({
+        email,
+        firstName,
+        lastName,
       });
-    }
+
+      const validatorErrors = validationResult(req);
+
+      if (validatorErrors.isEmpty()) {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        user.hashedPassword = hashedPassword;
+        await user.save();
+        loginUser(req, res, user);
+        res.redirect('/');
+      } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render('signup', {
+          title: 'Signup',
+          user,
+          errors,
+          csrfToken: req.csrfToken(),
+        });
+      }
 }));
-
-
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+// Route for loggin in the demo user
 router.post('/login/demoUser', asyncHandler( async(req, res) => {
   const demoUser = await User.findByPk(1)
   loginUser(req, res, demoUser);
   return req.session.save(() => res.redirect('/'));
 }));
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 module.exports = router;

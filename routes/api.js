@@ -14,11 +14,14 @@ const checkPermissions = (story, currentUser) => {
   }
 };
 
+//---------------Validators-------------------------------------------------------------------------
 const commentValidator = [
   check('message')
       .exists({ checkFalsey: true })
       .withMessage('Comment must contain written content.')
-]
+];
+//--------------------------------------------------------------------------------------------------
+
 
 const commentNotFoundError = (id) => {
   const err = Error(`Comment with id of ${id} could not be found.`);
@@ -26,30 +29,6 @@ const commentNotFoundError = (id) => {
   err.status = 404;
   return err;
 }
-
-// router.get(
-//   "/stories/:id(\\d+)/comments",
-//   asyncHandler(async (req, res, next) => {
-//     const comments = await Comment.findAll();
-
-
-//     res.json({ comments });
-
-
-//   })
-// );
-
-// router.post(
-//   "/stories/:id(\\d+)/comments",
-//   requireAuth,
-//   commentValidator,
-//   asyncHandler(async (req, res) => {
-//     const { body } = req.body;
-//     const newComment = await Comment.create({ body });
-//     res.status(201).json({ newComment });
-//   })
-// );
-
 
 router.post(
   "/comments/:id(\\d+)/edit",
