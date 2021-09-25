@@ -8,11 +8,12 @@ block content
       each story in stories
         div.storyContainer
           div.storyInfo
-            div(class='title')
-              a(class="btn-add-story" href=`/stories/${story.id}` role='button')
-                h2.storyTitle= story.title
-            div(class='subTitle')
-                h3.subtitle= story.subtitle
+            div(class="storyAndSub")
+              div(class='title')
+                a(class="btn-add-story" href=`/stories/${story.id}` role='button')
+                  h2.storyTitle= story.title
+              div(class='subTitle')
+                  h3.subtitle= story.subtitle
             div(class='topic')
                 h4.topics= story.Topic.name
                   div(class="nameContainer")
