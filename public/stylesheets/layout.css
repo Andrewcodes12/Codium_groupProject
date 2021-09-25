@@ -1,33 +1,30 @@
-html,body {
-    height: 100%;
-}
-
 body {
     background: black;
+    color: limegreen;
+}
+
+pr-4 {
 }
 
 .github {
-    max-width:100%;
-    height:50px
-
+    max-width: 100%;
+    height: 50px;
 }
 
 .container {
-    margin-top: 70px;
-
 }
 
 
-.footerbar{
-    position:fixed;
-    bottom:0;
-    width:100%;
+.footerbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: gray;
 }
 
 .navbar {
+    margin-top: -20px;
     position: fixed;
-    margin-top: -60px;
     box-sizing: border-box;
     border-bottom: 3px solid gray;
     background-color: black;
@@ -37,6 +34,23 @@ body {
     justify-content: space-between;
 }
 
+.navbar-top-right-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-right: 40px;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.navbar-logo-img {
+    padding-top: 15px;
+    margin-left: 20px;
+}
+
+.navbar-user-welcomer {
+    font-family: Unispace;
+}
 
 .navbar-nav {
     padding: 3px;
@@ -44,12 +58,19 @@ body {
     flex-direction: row;
 }
 
-.logo{
+.btn {
+    background-color: limegreen;
+    font-family: Unispace;
+    margin: 10px;
+    padding: 5px;
+    font-size: 14px;
+    color: black;
+}
+
+.btn-warning {
 
 }
 
-.Codium-header{
-    display: flex;
-    align-items: flex-start;
-    justify-content: left;
+.logo{
+
 }

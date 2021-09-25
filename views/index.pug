@@ -1,6 +1,7 @@
 extends layout.pug
 block content
   h3= title
+  
   a(class="btn-add-story" href='/stories/new' role='button') Add story
   div(class='stories')
     each story in stories

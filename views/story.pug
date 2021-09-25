@@ -15,7 +15,7 @@ block content
     p= story.body
     a(class='new-story-btn btn' href='/stories/new' role='button') Add Story
     a(class='edit-story-btn btn' href=`/stories/edit/${story.id}` role='button') Edit story
-    a(class='delete-story-btn' href=`/stories/delete/${story.id}` role='button') Delete story
+    a(class='delete-story-btn btn' href=`/stories/delete/${story.id}` role='button') Delete story
     div.commentContainer
       h2 Comments
       div.commentBox
@@ -29,8 +29,8 @@ block content
           div(class=`comment-${comment.id}`)
             div(class='commenterInfo')
             div(class='commenterName') Created by:
-              span(id='commenter-first-name')= comment.User.firstName 
-              span(id='commenter-last-name')= comment.User.lastName 
+              span(id='commenter-first-name')= comment.User.firstName
+              span(id='commenter-last-name')= comment.User.lastName
             div(class='comment-date')= comment.createdAt.toDateString()
             input(type='hidden', value=`${comment.id}`, id=`${comment.id}`)
             div(class='commentBody' contenteditable="false")= comment.body
