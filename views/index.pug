@@ -15,8 +15,9 @@ block content
                 h3.subtitle= story.subtitle
             div(class='topic')
                 h4.topics= story.Topic.name
-                h5.firstName= story.User.firstName
-                h5.lastName= story.User.lastName
+                  div(class="nameContainer")
+                    h5.firstName= story.User.firstName
+                    h5.lastName= story.User.lastName
                 h5.date= story.createdAt.toDateString()
           div(class='storyBody')
               p= story.body

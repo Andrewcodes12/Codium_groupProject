@@ -13,19 +13,20 @@ a {
   padding: 10px;
   direction: ltr;
   text-align: left;
+  font-size: 14px;
+  margin-top: -5px;
 }
 
 .storyBody{
   display: -webkit-box;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
-
   align-items: center;
-  background-color: #808080;
-  border-bottom: 25px solid black;
-  white-space: nowrap;
+  background-color: rgba(1,1,1,.5);
+  border: 2px solid black;
+  white-space: normal;
   overflow: hidden;
-  text-overflow: ellipsis "[..]";
+  text-overflow: ellipsis;
   margin-left: 20%;
   margin-right: 20%;
 }
