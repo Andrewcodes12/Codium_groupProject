@@ -2,6 +2,7 @@ body {
     background: rgb(67,82,64);
 background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
     color: limegreen;
+    font-family: Unispace;
 }
 
 
@@ -58,6 +59,10 @@ background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
     font-family: Unispace;
     font-size: 16px;
     margin-top: 5px;
+    color: gainsboro;
+    text-shadow:
+    0 0 1px #fff,
+    0 0 3px #fff;
 }
 
 .navbar-nav {
