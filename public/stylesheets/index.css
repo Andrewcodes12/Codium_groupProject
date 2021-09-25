@@ -9,10 +9,60 @@ a {
   box-sizing: border-box;
 }
 
+.storyBody > * {
+  padding: 10px;
+  direction: ltr;
+  text-align: left;
+}
+
+.storyBody{
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+
+  align-items: center;
+  background-color: #808080;
+  border-bottom: 25px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis "[..]";
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.storyInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.storyContainer {
+  background-color: rgba(1,1,1,.5);
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.title {
+  margin-bottom: -10px;
+}
+
+.topic > * {
+  margin: 0px;
+}
+
+
+
+
+
 h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
 body, header, nav {
 
 }
 
 h1 {
+}
+
+. {
 }
