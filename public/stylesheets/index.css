@@ -22,6 +22,7 @@ a {
 .storyTitle {
   font-family: "checkbookregular";
   margin-bottom: 35px;
+  color:rgb(72, 228, 92)
 }
 
 .storyBody > * {

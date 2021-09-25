@@ -1,7 +1,7 @@
 
 body {
     background: rgb(67,82,64);
-background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
     color: limegreen;
     font-family: Unispace;
     background-attachment: fixed;
@@ -21,11 +21,13 @@ background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 .footerbar {
-    position: fixed;
     bottom: 0;
-    width: 100%;
-    background-color:black;
-    border-top: 3px solid gray;
+    color: #707070;
+    height: 2em;
+    left: 0;
+    position: relative;
+    font-size: small;
+    width:100%;
 }
 .navbar {
     position: fixed;
