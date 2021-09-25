@@ -22,7 +22,6 @@ a {
 .storyTitle {
   font-family: "checkbookregular";
   margin-bottom: 35px;
-  color:rgb(72, 228, 92)
 }
 
 .storyBody > * {
@@ -140,4 +139,14 @@ text-decoration: none;
 .date {
   color: gray;
   padding-bottom: -20px;
+}
+
+.footerbar{
+  bottom: 0;
+  color: #707070;
+  height: 2em;
+  left: 0;
+  position: relative;
+  font-size: small;
+  width:100%;
 }
