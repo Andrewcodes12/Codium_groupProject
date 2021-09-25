@@ -54,7 +54,7 @@ const userValidators = [
     })
 ];
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-// Checking login 
+// Checking login
 const loginValidators = [
   check('email')
     .exists({ checkFalsy: true })
@@ -127,7 +127,7 @@ router.post('/logout',asyncHandler (async(req, res) => {
   return req.session.save(() => res.redirect('/'))
 }))
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-// Route for posting the the signup form to teh database
+// Route for posting the the signup form to the database
 router.post('/signup',
   csrfProtection,
   userValidators,

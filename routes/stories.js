@@ -11,7 +11,7 @@ const { requireAuth } = require('../auth');
 const checkPermissions = (story, currentUser) => {
   if (story.userId !== currentUser.id) {
     const err = new Error('Illegal operation.');
-    err.status = 403; 
+    err.status = 403;
     throw err;
   }
 };
@@ -39,14 +39,13 @@ const storyValidators = [
 
 const commentValidator = [
   check('body')
-    .exists({ checkFalsey: true })
+    .exists({ checkFalsy: true })
     .isLength({ min: 1 })
     .withMessage('Comment must contain written content.')
-
 ];
 //--------------------------------------------------------------------------------------------------
 // Route for getting a form to create a new story
-router.get('/new', 
+router.get('/new',
   requireAuth,
   csrfProtection,
   asyncHandler(async(req, res, next) => {
@@ -94,7 +93,7 @@ router.post('/new',
 }));
 //--------------------------------------------------------------------------------------------------
 // Route for getting a story at a particular storyId
-router.get('/:id(\\d+)', 
+router.get('/:id(\\d+)',
   csrfProtection,
   asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
@@ -116,7 +115,7 @@ router.get('/:id(\\d+)',
 //--------------------------------------------------------------------------------------------------
 // Route for getting a edit form for a particular story via storyId
 router.get('/edit/:id(\\d+)',
-  requireAuth, 
+  requireAuth,
   csrfProtection,
   asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
@@ -134,10 +133,10 @@ router.get('/edit/:id(\\d+)',
   }));
 //--------------------------------------------------------------------------------------------------
 // Route for posting edit to a particular story via storyId
-router.post('/edit/:id(\\d+)', 
+router.post('/edit/:id(\\d+)',
   requireAuth,
   csrfProtection,
-  storyValidators, 
+  storyValidators,
   asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
     const storyToUpdate = await Story.findByPk(storyId);
@@ -178,8 +177,8 @@ router.post('/edit/:id(\\d+)',
 //--------------------------------------------------------------------------------------------------
 // Route for a GET request to delete a story at a particular storyId
 router.get('/delete/:id(\\d+)',
-  requireAuth, 
-  csrfProtection, 
+  requireAuth,
+  csrfProtection,
   asyncHandler(async (req, res) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await Story.findByPk(storyId);

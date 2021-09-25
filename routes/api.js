@@ -16,10 +16,10 @@ const checkPermissions = (story, currentUser) => {
 
 //---------------Validators-------------------------------------------------------------------------
 const commentValidator = [
-  check('message')
-      .exists({ checkFalsey: true })
-      .withMessage('Comment must contain written content.')
-];
+  check('body')
+  .exists({ checkFalsy: true })
+  .withMessage('Comment body must exist.')
+]
 //--------------------------------------------------------------------------------------------------
 
 
@@ -43,6 +43,14 @@ router.post(
       res.json({ comment });
     } else {
       next(commentNotFoundError(commentId));
+    }
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
     }
 }))
 
