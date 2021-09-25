@@ -1,15 +1,19 @@
 extends layout.pug
 
-include utils.pug
 
 block content
-    +validationErrorSummary(errors)
-    form(action=`/stories/edit/${story.id}` method='post')
-        include story-form-field.pug
-        select(name="topic" required)
-            label(for="topic") Topic
-                each topic in topics
-                    option(value=topic.id)= topic.name
-        div(class='editor')
-            button(type-'submit' class='editor-button') Update Story
-            a(href=`/stories/edit/${story.id}` class='redirect') cancel
+  form(action=`/stories/edit/${story.id}` method='post')
+    input(type='hidden' name='_csrf' value=csrfToken)
+    label(for='title') Title
+    input(type='text' id='title' name='title' value=story.title class='title' required)
+    label(for='subtitle') Subtitle
+    input(type='text' id='subtitle' name='subtitle' value=story.subtitle class='user-comment-input' required)
+    label(for='subtitle') Subtitle
+    input(type='text' id='body' name='body' value=story.body class='user-comment-input' required)
+    select(name="topic" required)
+      label(for="topic") Topic
+        each topic in topics
+            option(value=topic.id)= topic.name
+    div(class='editor')
+      button(type-'submit' class='editor-button') Update Story
+      a(href=`/stories/edit/${story.id}` class='redirect') cancel

@@ -1,36 +1,34 @@
 doctype html
 html
   head
-      block head
-        title="Codium: The People's App"
-        link(rel="stylesheet" href="/stylesheets/index.css")
-        link(rel="stylesheet" href="/stylesheets/layout.css")
-        link(rel="stylesheet" href="/stylesheets/login.css")
-        link(rel="stylesheet" href="/stylesheets/new-story.css")
-        link(rel="stylesheet" href="/stylesheets/signup.css")
-        link(rel="stylesheet" href="/stylesheets/story-delete.css")
-        link(rel="stylesheet" href="/stylesheets/story-edit.css")
-        link(rel="stylesheet" href="/stylesheets/story-form-field.css")
-        link(rel="stylesheet" href="/stylesheets/story.css")
-
-  body.body
-    nav(class='navbar navbar-expand-lg navbar-dark bg-primary')
-      a(class='navbar-brand' href='/')
-        img(src="/images/faviconLogo.png" class="logo")
-      span(class="Codium-header") Codium
-      div(class='collapse navbar-collapse' id='navbarText')
-        ul(class='navbar-nav mr-auto')
+    title="Codium: The People's App"
+      link(rel="stylesheet" href="/stylesheets/index.css")
+      link(rel="stylesheet" href="/stylesheets/layout.css")
+      link(rel="stylesheet" href="/stylesheets/login.css")
+      link(rel="stylesheet" href="/stylesheets/new-story.css")
+      link(rel="stylesheet" href="/stylesheets/signup.css")
+      link(rel="stylesheet" href="/stylesheets/story-delete.css")
+      link(rel="stylesheet" href="/stylesheets/story-edit.css")
+      link(rel="stylesheet" href="/stylesheets/story-form-field.css")
+      link(rel="stylesheet" href="/stylesheets/story.css")
+  body
+    nav(class='navbar')
+      a(class='navbar-logo-link' href='/')
+        img(src="/images/faviconLogo.png" class="navbar-logo-img")
+      h1(class="Codium-header") Codium
+      div(class='navbar-top-right-container' )
         if locals.authenticated
-          span(class='navbar-text px-4' id="usersName") Welcome #{user.firstName}!
+          span(class='navbar-user-welcomer') Welcome #{user.firstName} #{user.lastName}!
           form(class='form-inline pr-4' action='/users/logout' method='post')
             button(class='btn btn-sm btn-warning' type='submit') Logout
         else
-          span(class='navbar-text px-4')
-            a(class='btn btn-sm btn-dark mr-2' href='/users/login') Login
-            a(class='btn btn-sm btn-dark' href='/users/signup') Sign Up
+          span(class='navbar-new-user-welcomer')
+            a(class='btn login-btn' href='/users/login') Login
+            a(class='btn signup-btn' href='/users/signup') Sign Up
     div.container
       h2(class='py-4') #{title}
       block content
+
       block footer
         div.footerbar
           div.githubLinks
@@ -38,3 +36,4 @@ html
             a(href="https://github.com/hgerdes" class="Harrison") Harrison Gerdes
             a(href="https://github.com/noahSharretts" class="Noah") Noah Sharretts
             a(href="https://github.com/Andrewcodes12" class="Andrew") Andrew Fava
+        script(src="/javascripts/index.js" type="module" defer)
