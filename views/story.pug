@@ -1,42 +1,43 @@
 extends layout.pug
 
-include utils.pug
 
-append head
-  script(src='/javascripts/index.js' type='module' defer)
 block content
-    div(class='title')
-        h2= story.title
-    div(class='subtitle')
-        h3= story.subtitle
-    div(class='topic')
-        h4= story.Topic.name
-        h5= story.User.firstName
-        h5= story.User.lastName
-    div(class='body2')
-        p= story.body
-        a(class='btn btn-success' href='/stories/new' role='button') Add Story
-        a(class='btn btn-primary' href=`/stories/edit/${story.id}` role='button') Edit
-        a(class='btn btn-danger ml-2' href=`/stories/delete/${story.id}` role='button') Delete
-        div.commentContainer
-            h2 Comments
-            div.commentBox
-            div(class='commentBoxForm')
-                input(id='token' type='hidden' name='_csrf' value=csrfToken)
-                +field('content', content, '', 'Comment')
-                div.submitBtn
-                button(id='submitBtn' data-story-id=story.id) Submit
-            div.commentList
-                each comment in comments
-                    div(class=`comment-${comment.id}`)
-                        div(class='commenterInfo')
-                        div(class='commenterName')
-                        input(type='hidden', value=`${comment.id}`, id=`${comment.id}`)
-                        div(class='commentBody' contenteditable="false")= comment.body
-                        if locals.authenticated && locals.user.id === comment.userId
-                            div(class="commentContent" )
-                            div(class="commentButtons")
-                                button(class=`editBtn editBtn-${comment.id} btn`) Edit
-                                button(class=`deleteBtn deleteBtn-${comment.id} btn` data-comment-id= comment.id) Delete
-                                button(class=`editCancelBtn editCancelBtn-${comment.id} btn` hidden) Cancel
-                                button(class=`editSubmitBtn editSubmitBtn-${comment.id} btn` hidden data-comment-id= comment.id ) Submit
+  div(class='story-title')
+    h2= story.title
+  div(class='story-subtitle')
+    h3= story.subtitle
+  div(class='story-topic')
+    h4= story.Topic.name
+    h5= story.User.firstName
+    h5= story.User.lastName
+    h5= story.createdAt.toDateString()
+  div(class='body2')
+    p= story.body
+    a(class='new-story-btn btn' href='/stories/new' role='button') Add Story
+    a(class='edit-story-btn btn' href=`/stories/edit/${story.id}` role='button') Edit story
+    a(class='delete-story-btn' href=`/stories/delete/${story.id}` role='button') Delete story
+    div.commentContainer
+      h2 Comments
+      div.commentBox
+      div(class='commentBoxForm')
+        input(id='token' type='hidden' name='_csrf' value=csrfToken)
+        input(type='content' class='user-comment-input' required)
+        div.submitBtn
+        button(id='submitBtn' data-story-id=story.id) Submit
+      div.commentList
+        each comment in comments
+          div(class=`comment-${comment.id}`)
+            div(class='commenterInfo')
+            div(class='commenterName') Created by:
+              span(id='commenter-first-name')= comment.User.firstName 
+              span(id='commenter-last-name')= comment.User.lastName 
+            div(class='comment-date')= comment.createdAt.toDateString()
+            input(type='hidden', value=`${comment.id}`, id=`${comment.id}`)
+            div(class='commentBody' contenteditable="false")= comment.body
+            if locals.authenticated && locals.user.id === comment.userId
+              div(class="commentContent" )
+              div(class="commentButtons")
+                button(class=`editBtn editBtn-${comment.id} btn`) Edit
+                button(class=`deleteBtn deleteBtn-${comment.id} btn` data-comment-id= comment.id) Delete
+                button(class=`editCancelBtn editCancelBtn-${comment.id} btn` hidden) Cancel
+                button(class=`editSubmitBtn editSubmitBtn-${comment.id} btn` hidden data-comment-id= comment.id ) Submit

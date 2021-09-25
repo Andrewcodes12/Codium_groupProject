@@ -104,7 +104,8 @@ router.get('/:id(\\d+)',
     const comments = await Comment.findAll({
       where: {
         storyId: storyId
-      }
+      },
+      include: User
     });
 
     res.render('story',{
