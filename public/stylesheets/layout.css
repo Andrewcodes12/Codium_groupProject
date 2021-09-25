@@ -3,6 +3,7 @@ body {
 background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
     color: limegreen;
     font-family: Unispace;
+    background-attachment: fixed;
 }
 
 
@@ -27,11 +28,11 @@ background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 .navbar {
-    margin-top: -20px;
     position: fixed;
     box-sizing: border-box;
     border-bottom: 3px solid gray;
     background-color: black;
+    margin-top: -20px;
     display: flex;
     width: 100%;
     flex-direction: row;
