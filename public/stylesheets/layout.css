@@ -1,5 +1,6 @@
 body {
-    background: black;
+    background: rgb(67,82,64);
+background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
     color: limegreen;
 }
 
@@ -20,7 +21,7 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: gray;
+    background-color:black;
 }
 
 .navbar {
