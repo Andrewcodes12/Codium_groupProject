@@ -3,8 +3,6 @@ body {
     color: limegreen;
 }
 
-pr-4 {
-}
 
 .github {
     max-width: 100%;
@@ -14,6 +12,9 @@ pr-4 {
 .container {
 }
 
+.logout-btn{
+    margin-top: -11px;
+}
 
 .footerbar {
     position: fixed;
@@ -43,6 +44,9 @@ pr-4 {
     font-size: 24px;
 }
 
+.btn-warning {
+}
+
 .navbar-logo-img {
     padding-top: 15px;
     margin-left: 20px;
@@ -50,6 +54,8 @@ pr-4 {
 
 .navbar-user-welcomer {
     font-family: Unispace;
+    font-size: 16px;
+    margin-top: 5px;
 }
 
 .navbar-nav {
@@ -67,7 +73,7 @@ pr-4 {
     color: black;
 }
 
-.btn-warning {
+.form-inline {
 
 }
 
