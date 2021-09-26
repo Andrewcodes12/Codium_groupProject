@@ -1,4 +1,3 @@
-
 mixin validationErrorSummary(errors)
   if errors
     div(class='alert alert-danger' role='alert')
@@ -10,4 +9,4 @@ mixin validationErrorSummary(errors)
 mixin field(labelText, fieldName, fieldValue, fieldType = 'text')
   div(class='form-group')
     label(for=fieldName)= labelText
-    input(type=fieldType id=fieldName name=fieldName value=fieldValue class='form-control')
+    input(type=fieldType id=fieldName name=fieldName value=fieldValue class='form-control' required)

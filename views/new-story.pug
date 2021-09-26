@@ -1,26 +1,26 @@
-extend layout.pug
+extends layout.pug
 
 block content
   if errors
     ul
       each error in errors
         li= error
-  h2 New Story
+  h2.headerNewStory Create A Story
   form(method="post" action="/stories/new")
     input(type="hidden" name="_csrf" value=csrfToken)
-    div
+    div.titleNewStory
       label(for="title") Title
       input(type="text" name="title" required)
-    div
+    div.subtitleNewStory
       label(for="subtitle") subtitle
       input(type="text" name="subtitle" required)
-    div
+    div.bodyNewStory
       label(for="body") Body
       textarea(name="body")
-    div
+    div.topicNewStory
       label(for="topic") Topic
       select(name="topic" required)
         each topic in topics
           option(value=topic.id)= topic.name
-    div
-      button(type="submit") Submit
+    div.submitNewStory
+      button(type="submit" class="submitBtn") Submit

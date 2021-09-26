@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'checkbookregular';
+    src: url('/fonts/checkbook/checkbk0-webfont.woff2') format('woff2'),
+         url('/fonts/checkbook/checkbk0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+  }
+
+
+.headerNewStory{
+    font-family: "checkbookregular";
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);
+}
+.titleNewStory{
+    font-family: "checkbookregular";
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);
+}
+
+.subtitleNewStory{
+    font-family: "checkbookregular";
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);
+    margin-right: 40px;
+}
+
+.bodyNewStory{
+    font-family: "checkbookregular";
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);
+}
+
+.topicNewStory{
+    font-family: "checkbookregular";
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+    font-size: 25px;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);
+}
+
+.submitNewStory{
+    display: flex;
+    justify-content: center;
+    color:white ;
+}
+.submitBtn{
+    display: flex;
+    font-size: 15px;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.24);
+    transition-duration:.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.submitBtn:hover{
+    background-color:rgb(119, 255, 85);
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+input[type=text]{
+    background-color: rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid rgb(119, 255, 85);
+    color: rgb(255,255,255);
+}
+
+
+textarea{
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color:  rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid rgb(119, 255, 85);
+    color: rgb(255,255,255);
+    resize: none;
+}
+
+
+select{
+    width: 15%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(119, 255, 85);
+}

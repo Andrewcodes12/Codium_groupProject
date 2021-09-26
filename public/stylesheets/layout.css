@@ -1,0 +1,231 @@
+@font-face {
+    font-family: 'C64 Pro';
+    src: url('/fonts/c64/C64Pro.woff2') format('woff2'),
+        url('/fonts/c64/C64Pro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body:before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 20% 4px;
+    z-index: 2;
+    pointer-events: none;
+    background-attachment: fixed;
+}
+
+
+body {
+    background: rgb(67,82,64);
+    background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
+    color: limegreen;
+    font-family: Unispace;
+    background-attachment: fixed;
+
+}
+
+.codiumTextTitle {
+    font-family: "C64 Pro";
+    color: lime;
+    text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 8px rgb(72, 228, 92), 0 0 20px rgb(72, 228, 92);
+    font-size: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.github {
+    max-width: 100%;
+    height: 50px;
+}
+
+.githubLinks {
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    gap: 40px;
+    font-size: 20px;
+}
+
+.Harrison {
+    color: gainsboro;
+    text-shadow: 0 0 1px #fff, 0 0 6px #fff;
+}
+
+.Harrison:hover{
+    color:white;
+    text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 16px #fff
+}
+
+
+.Noah {
+    color: gainsboro;
+    text-shadow: 0 0 1px #fff, 0 0 6px #fff;
+}
+
+.Noah:hover{
+    color:white;
+    text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 16px #fff
+}
+
+
+.Andrew {
+    color: gainsboro;
+    text-shadow: 0 0 1px #fff, 0 0 6px #fff;
+}
+
+.Andrew:hover{
+    color: white;
+    text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 16px #fff
+}
+
+
+.container {
+}
+
+.logout-btn{
+    margin-top: -18px;
+}
+
+#btn-logout {
+    font-size: 20px;
+    background-color: lime;
+    box-shadow: 0 0 10px 03px lime;
+    color: rgb(47, 47, 47);
+    border: none;
+    transition-duration: .2s;
+ }
+
+ #btn-login {
+    font-size: 20px;
+    background-color: lime;
+    box-shadow: 0 0 10px 03px lime;
+    color: rgb(47, 47, 47);
+    border: none;
+    text-decoration: none;
+    transition-duration: .2s;
+ }
+
+ #btn-signup {
+    font-size: 20px;
+    background-color: lime;
+    box-shadow: 0 0 10px 03px lime;
+    color: rgb(47, 47, 47);
+    border: none;
+    text-decoration: none;
+    transition-duration: .2s;
+ }
+
+ #btn-logout:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
+ }
+
+
+ #btn-signup:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
+ }
+
+ #btn-login:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
+ }
+
+ .navbar-new-user-welcomer {
+     margin-top: -6px;
+ }
+
+.navbar {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0px 0px 20px 0px #ffffff;
+    background-color: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 55px;
+    max-height: 55px;
+    z-index: 3;
+}
+
+.footerbar{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 0px 20px 20px 15px #ffffff;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    font-size: small;
+    width: 100%;
+    min-height: 75px;
+    max-height: 75px;
+    z-index: 3;
+}
+
+.navbar-top-right-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-right: 40px;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.btn-warning {
+}
+
+.navbar-logo-img {
+    padding-top: 15px;
+    margin-left: 20px;
+}
+
+.navbar-user-welcomer {
+    font-family: Unispace;
+    font-size: 22px;
+    margin-top: -5px;
+    color: gainsboro;
+    text-shadow:
+    0 0 1px #fff,
+    0 0 3px #fff;
+}
+
+.navbar-nav {
+    padding: 3px;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn {
+    background-color: limegreen;
+    font-family: Unispace;
+    margin: 10px;
+    padding: 5px;
+    font-size: 14px;
+    color: black;
+}
+
+.form-inline {
+
+}
+
+.logo{
+
+}

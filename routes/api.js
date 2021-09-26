@@ -14,11 +14,14 @@ const checkPermissions = (story, currentUser) => {
   }
 };
 
+//---------------Validators-------------------------------------------------------------------------
 const commentValidator = [
-  check('message')
-      .exists({ checkFalsey: true })
-      .withMessage('Comment must contain written content.')
+  check('body')
+  .exists({ checkFalsy: true })
+  .withMessage('Comment body must exist.')
 ]
+//--------------------------------------------------------------------------------------------------
+
 
 const commentNotFoundError = (id) => {
   const err = Error(`Comment with id of ${id} could not be found.`);
@@ -27,48 +30,68 @@ const commentNotFoundError = (id) => {
   return err;
 }
 
-router.get(
-  "/stories/:id(\\d+)/comments",
-  asyncHandler(async (req, res, next) => {
-    const comments = await Comment.findAll();
+router.post('/stories/:id(\\d+)/likes',
+  requireAuth,
+  asyncHandler( async(req, res) => {
+    const storyId = await parseInt(req.params.id, 10);
+    const userId = res.locals.user.id;
 
-    
-    res.json({ comments });
+    const aLike = await Like.findOne({
+      where: {
+        storyId,
+        userId
+      }
+    });
 
-    
+    let likesCount = await Like.count({
+      where: {
+        storyId: storyId
+      }
+    })
+
+    if (aLike) {
+      await aLike.destroy();
+      likesCount--
+      res.status(200)
+      res.json({ likesCount })
+    } else {
+      const newLike = await Like.create({
+        storyId,
+        userId
+      })
+      likesCount++
+      res.status(200)
+      res.json({ likesCount })
+    }
   })
-);
+)
 
-// router.post(
-//   "/stories/:id(\\d+)/comments",
-//   requireAuth,
-//   commentValidator,
-//   asyncHandler(async (req, res) => {
-//     const { body } = req.body;
-//     const newComment = await Comment.create({ body });
-//     res.status(201).json({ newComment });
-//   })
-// );
-
-
-router.put(
-  "/comments/:id(\\d+)",
+router.post(
+  "/comments/:id(\\d+)/edit",
   requireAuth,
   commentValidator,
   asyncHandler(async (req, res, next) => {
-    const commentId = parseInt(req.params.id, 8);
+    const commentId = parseInt(req.params.id, 10);
     const comment = await Comment.findByPk(commentId);
-
+    console.log(comment)
     if (comment) {
-      await comment.update({ message: req.body.message });
+      await comment.update({ body: req.body.body });
       res.json({ comment });
     } else {
       next(commentNotFoundError(commentId));
     }
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+    }
 }))
 
 router.delete(
-  "/comments/:id(\\d+)",
+  "/comments/:id(\\d+)/delete",
   requireAuth,
   asyncHandler(async (req, res, next) => {
     const commentId = parseInt(req.params.id, 10);
