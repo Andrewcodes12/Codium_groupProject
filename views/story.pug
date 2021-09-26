@@ -8,8 +8,7 @@ block content
     h3.editSub= story.subtitle
   div(class='story-topic')
     h4.editTopicName= story.Topic.name
-    h5.editFirstName= story.User.firstName
-    h5.editLastName= story.User.lastName
+    h5.editUserName= `${story.User.firstName} ${story.User.lastName}`
     h5.editDate= story.createdAt.toDateString()
   div(class='body2')
   div.storyBodyDiv

@@ -15,7 +15,7 @@
     font-size: 25px;
     letter-spacing: 2px;
 }
-.editFirstName{
+.editUserName{
     display: flex;
     justify-content: center;
     font-family: "checkbookregular";
@@ -26,19 +26,7 @@
     right:.5%
 
 }
-.editLastName{
-    display: flex;
-    justify-content: center;
-    font-family: "checkbookregular";
-    margin: inherit;
-    font-size: 25px;
-    letter-spacing: 2px;
-    position: absolute;
-    top: 15%;
-    right: 20%;
-    left:25%;
 
-}
 .editDate{
     display: flex;
     justify-content: center;
