@@ -1,17 +1,80 @@
 
+body:before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 20% 3px;
+    z-index: 2;
+    pointer-events: none;
+    background-attachment: fixed;
+}
+
+
 body {
     background: rgb(67,82,64);
     background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
     color: limegreen;
     font-family: Unispace;
     background-attachment: fixed;
-}
 
+}
 
 .github {
     max-width: 100%;
     height: 50px;
 }
+
+.githubLinks {
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    gap: 40px;
+    font-size: 20px;
+}
+
+
+
+.Harrison {
+    color: gainsboro;
+    text-shadow: 0 0 1px #fff, 0 0 6px #fff;
+}
+
+.Harrison:hover{
+    color:white;
+    text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 16px #fff
+  }
+
+
+.Noah {
+    color: gainsboro;
+    text-shadow: 0 0 1px #fff, 0 0 6px #fff;
+}
+
+.Noah:hover{
+    color:white;
+    text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 16px #fff
+  }
+
+
+.Andrew {
+    color: gainsboro;
+    text-shadow: 0 0 1px #fff, 0 0 6px #fff;
+}
+
+.Andrew:hover{
+    color: white);
+    text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 16px #fff
+  }
+
 
 .container {
 }
@@ -32,7 +95,7 @@ body {
     width: 100%;
     min-height: 55px;
     max-height: 55px;
-    z-index: 1;
+    z-index: 3;
 }
 
 .footerbar{
@@ -46,10 +109,10 @@ body {
     left: 0;
     font-size: small;
     width: 100%;
-    min-height: 45px;
-    max-height: 45px;
+    min-height: 75px;
+    max-height: 75px;
+    z-index: 3;
 }
-
 
 .navbar-top-right-container {
     display: flex;
