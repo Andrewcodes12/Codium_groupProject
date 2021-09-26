@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'C64 Pro';
+    src: url('/fonts/c64/C64Pro.woff2') format('woff2'),
+        url('/fonts/c64/C64Pro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 body:before {
     content: " ";
@@ -28,6 +37,16 @@ body {
 
 }
 
+.codiumTextTitle {
+    font-family: "C64 Pro";
+    color: lime;
+    text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 8px rgb(72, 228, 92), 0 0 20px rgb(72, 228, 92);
+    font-size: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
 .github {
     max-width: 100%;
     height: 50px;
@@ -41,8 +60,6 @@ body {
     font-size: 20px;
 }
 
-
-
 .Harrison {
     color: gainsboro;
     text-shadow: 0 0 1px #fff, 0 0 6px #fff;
@@ -51,7 +68,7 @@ body {
 .Harrison:hover{
     color:white;
     text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 16px #fff
-  }
+}
 
 
 .Noah {
@@ -62,7 +79,7 @@ body {
 .Noah:hover{
     color:white;
     text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 16px #fff
-  }
+}
 
 
 .Andrew {
@@ -71,9 +88,9 @@ body {
 }
 
 .Andrew:hover{
-    color: white);
+    color: white;
     text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 16px #fff
-  }
+}
 
 
 .container {
@@ -89,6 +106,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 0px 0px 20px 0px #ffffff;
+
     background-color: black;
     top: 0;
     left: 0;
@@ -133,8 +151,8 @@ body {
 
 .navbar-user-welcomer {
     font-family: Unispace;
-    font-size: 16px;
-    margin-top: 5px;
+    font-size: 22px;
+    margin-top: -5px;
     color: gainsboro;
     text-shadow:
     0 0 1px #fff,

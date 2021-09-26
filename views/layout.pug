@@ -13,8 +13,8 @@ html
     link(rel="stylesheet", href="/stylesheets/story.css")
   body
     nav(class='navbar')
+      a(class="codiumTextTitle" href='/') CODIUM
       a(class='navbar-logo-link' href='/')
-        img(src="/images/cropped-codium.png" class="navbar-logo-img")
       h1(class="Codium-header")
       div(class='navbar-top-right-container' )
         if locals.authenticated
@@ -32,6 +32,7 @@ html
 
       block footer
         footer.footerbar
+          div.githubLogo
           div(class="githubLinks")
             img(src="https://api.iconify.design/codicon/github-inverted.svg?color=white" alt="GitHub Icon" class="github")
             a(href="https://github.com/hgerdes" class="Harrison") Harrison Gerdes

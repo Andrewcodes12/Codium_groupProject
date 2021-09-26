@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'checkbookregular';
-  src: url('/fonts/checkbk0-webfont.woff2') format('woff2'),
-       url('/fonts/checkbk0-webfont.woff') format('woff');
+  src: url('/fonts/checkbook/checkbk0-webfont.woff2') format('woff2'),
+       url('/fonts/checkbook/checkbk0-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -62,7 +62,8 @@ body {
   margin-left: 20%;
   margin-right: 20%;
   padding-bottom: 50px;
-
+  border: 2px solid black;
+  border-radius: 3px;
 }
 
 .title {
