@@ -80,6 +80,7 @@ body {
 .subTitle {
   font-size: 18px;
   margin-top: -5px;
+  color: lime;
   text-shadow:
   0 0 1px #fff,
   0 0 5px #fff;
