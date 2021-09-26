@@ -24,7 +24,7 @@ body {
   padding: 10px;
   direction: ltr;
   text-align: left;
-  font-size: 14px;
+  font-size: 22px;
   margin-top: -5px;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .storyContainer {
-  height: 200px;
+  height: 250px;
 }
 
 .stories {
@@ -65,8 +65,8 @@ body {
 }
 
 .title {
-  margin-bottom: -35px;
-  font-size: 26px;
+  margin-top: -55px;
+  font-size: 42px;
   letter-spacing: 3px;
   color: #fff;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
@@ -74,7 +74,8 @@ body {
 }
 
 .subTitle {
-  margin-bottom: -30px;
+  font-size: 28px;
+  margin-top: -65px;
   text-shadow:
   0 0 1px #fff,
   0 0 5px #fff;
