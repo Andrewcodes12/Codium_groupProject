@@ -133,6 +133,7 @@ body {
   justify-content: column;
   gap: 5px;
   margin-top: -40px;
+  bottom: 0;
 }
 
 .topic {
@@ -153,22 +154,6 @@ body {
 .storyAndSub {
   display: flex;
   flex-direction: column;
-}
-
-#firstName {
-  position: absolute;
-  bottom: 0;
-}
-
-#lastName {
-  position: absolute;
-  bottom: 0;
-}
-
-#date {
-  position: absolute;
-  color: gray;
-  bottom: 0;
 }
 
 .footerbar{

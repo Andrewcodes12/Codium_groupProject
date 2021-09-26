@@ -1,49 +1,178 @@
-.title{
-    color: blanchedalmond;
+.editSub{
+    display: flex;
+    justify-content: center;
+    font-family: "checkbookregular";
+    font-size: 50px;
+    margin: inherit;
+    letter-spacing: 2px;
 }
 
-.subtitle{
-    color: blanchedalmond;
+.editTopicName{
+    display: flex;
+    justify-content: center;
+    font-family: "checkbookregular";
+    margin: inherit;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+.editFirstName{
+    display: flex;
+    justify-content: center;
+    font-family: "checkbookregular";
+    margin: inherit;
+    font-size: 25px;
+    position: relative;
+    letter-spacing: 2px;
+    right:.5%
+
+}
+.editLastName{
+    display: flex;
+    justify-content: center;
+    font-family: "checkbookregular";
+    margin: inherit;
+    font-size: 25px;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 15%;
+    right: 20%;
+    left:25%;
+
+}
+.editDate{
+    display: flex;
+    justify-content: center;
+    font-family: "checkbookregular";
+    margin: inherit;
+    font-size: 25px;
+    letter-spacing: 2px;
 }
 
-.topic{
-    color: blanchedalmond;
+.storyBodyDiv{
+    text-align: center;
+    vertical-align: middle;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 20% 3px;
+    z-index: 2;
+    pointer-events: none;
+    background-attachment: fixed;
 }
 
-.body{
-    color: blanchedalmond;
+.storyBody{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+
+.new-story-btn{
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+
+
+.edit-story-btn{
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+}
+
+.delete-story-btn{
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 15%;
+    left: 0%;
+}
+
+.commentHeader{
+    display: flex;
+    justify-content: center;
 }
 
 .commentContainer{
-    color: blanchedalmond;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.commentBox{
-    color: blanchedalmond;
+
+.user-comment-input{
+    width: 500%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color:  rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid rgb(119, 255, 85);
+    color: rgb(255,255,255);
+    resize: none;
 }
 
-.commentBoxForm{
-
+#submitBtn{
+    display: flex;
+    font-size: 15px;
+    border-radius: 4px;
+    background-color: rgba(255, 249, 249, 0.24);
+    transition-duration:.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-.submitBtn{
-
+#submitBtn:hover{
+    background-color:rgb(119, 255, 85);
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .commentList{
-
-}
-
-.commenterInfo{
-
+    text-align: center;
+    vertical-align: middle;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 20% 3px;
+    z-index: 2;
 }
 
 .commenterName{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.commenter-first-name{
+
+}
+
+.commenter-last-name{
+
+}
+
+.comment-date{
+display: flex;
+position: absolute;
+
 
 }
 
 .commentBody{
-
+    border-top: 2px solid rgba(0, 0, 0, 0.25);
 }
 
 .commentContent{
@@ -51,22 +180,5 @@
 }
 
 .commentButtons{
-
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
 }
-
-.editBtn{
-
-}
-
-.deletebtn{
-
-}
-
-.editCancelBtn{
-
-}
-
-.editSubmitBtn{
-
-}
-

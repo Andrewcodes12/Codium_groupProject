@@ -272,7 +272,6 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         editSubmitBtn.hidden= true
         //--------------------------------------------------------------------- 
         
-        
       } catch (e) {
         console.log("Failed to fetch comments", e);
       }
@@ -290,7 +289,6 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
 
       likeBtn.innerText = `Likes: ${likesCount}`
       
-
     } catch (e) {
         console.log("Failed to fetch comments", e);
     }

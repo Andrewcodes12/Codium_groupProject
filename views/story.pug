@@ -5,24 +5,25 @@ block content
   div(class='story-title')
     h2= story.title
   div(class='story-subtitle')
-    h3= story.subtitle
+    h3.editSub= story.subtitle
   div(class='story-topic')
-    h4= story.Topic.name
-    h5= story.User.firstName
-    h5= story.User.lastName
-    h5= story.createdAt.toDateString()
+    h4.editTopicName= story.Topic.name
+    h5.editFirstName= story.User.firstName
+    h5.editLastName= story.User.lastName
+    h5.editDate= story.createdAt.toDateString()
   div(class='body2')
-    p= story.body
+  div.storyBodyDiv
+    p.storyBody= story.body
+  div.storyDiv
     a(class='new-story-btn btn' href='/stories/new' role='button') Add Story
     a(class='edit-story-btn btn' href=`/stories/edit/${story.id}` role='button') Edit story
     a(class='delete-story-btn btn' href=`/stories/delete/${story.id}` role='button') Delete story
     button(id='likes-box' data-story-id= user.id) Likes: #{likesCount}
     div.commentContainer
-      h2 Comments
       div.commentBox
       div(class='commentBoxForm')
         input(id='token' type='hidden' name='_csrf' value=csrfToken)
-        input(type='content' class='user-comment-input' required)
+        textarea(name="body" class='user-comment-input' required)
         div.submitBtn
         button(id='submitBtn' data-story-id=story.id) Submit
       div.commentList
