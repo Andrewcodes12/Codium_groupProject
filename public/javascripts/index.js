@@ -270,10 +270,29 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         // Setting buttonto be hidden by defualt
         editCancelBtn.hidden= true
         editSubmitBtn.hidden= true
-        //---------------------------------------------------------------------           
+        //--------------------------------------------------------------------- 
+        
+        
       } catch (e) {
         console.log("Failed to fetch comments", e);
       }
     });
   }
-  })
+  const likeBtn = document.querySelector('#likes-box')
+  likeBtn.addEventListener('click', async(event) => {
+    const storyId = event.target.dataset.storyId;
+    try {
+      const res = await fetch(`/api/stories/${storyId}/likes`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      const { likesCount } = await res.json();
+
+      likeBtn.innerText = `Likes: ${likesCount}`
+      
+
+    } catch (e) {
+        console.log("Failed to fetch comments", e);
+    }
+  })   
+})

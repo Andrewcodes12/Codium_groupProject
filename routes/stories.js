@@ -107,10 +107,16 @@ router.get('/:id(\\d+)',
       order: [["createdAt", "DESC"]],
       include: User
     });
+    let likesCount = await Like.count({
+      where: {
+        storyId: storyId
+      }
+    })
 
     res.render('story',{
       story,
       comments,
+      likesCount,
       csrfToken: req.csrfToken(),
     })
   }));

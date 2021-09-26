@@ -30,6 +30,42 @@ const commentNotFoundError = (id) => {
   return err;
 }
 
+router.post('/stories/:id(\\d+)/likes',
+  requireAuth,
+  asyncHandler( async(req, res) => {
+    const storyId = await parseInt(req.params.id, 10);
+    const userId = res.locals.user.id;
+
+    const aLike = await Like.findOne({
+      where: {
+        storyId,
+        userId
+      }
+    });
+
+    let likesCount = await Like.count({
+      where: {
+        storyId: storyId
+      }
+    })
+
+    if (aLike) {
+      await aLike.destroy();
+      likesCount--
+      res.status(200)
+      res.json({ likesCount })
+    } else {
+      const newLike = await Like.create({
+        storyId,
+        userId
+      })
+      likesCount++
+      res.status(200)
+      res.json({ likesCount })
+    }
+  })
+)
+
 router.post(
   "/comments/:id(\\d+)/edit",
   requireAuth,
