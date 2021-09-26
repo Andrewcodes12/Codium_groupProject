@@ -97,8 +97,16 @@ body {
 }
 
 .logout-btn{
-    margin-top: -11px;
+    margin-top: -18px;
 }
+
+#btn-logout {
+    font-size: 20px;
+    background-color: lime;
+    box-shadow: 0 0 10px 03px lime;
+    color: rgb(47, 47, 47);
+    border: none;
+ }
 
 .navbar {
     position: fixed;
@@ -106,7 +114,6 @@ body {
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 0px 0px 20px 0px #ffffff;
-
     background-color: black;
     top: 0;
     left: 0;

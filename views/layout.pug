@@ -21,7 +21,7 @@ html
           span(class='navbar-user-welcomer') Welcome #{user.firstName} #{user.lastName}!
           form(class='form-inline pr-4' action='/users/logout' method='post')
             div(class="logout-btn")
-            button(class='btn btn-sm btn-warning' type='submit') Logout
+              button(class='btn btn-sm btn-warning' id="btn-logout" type='submit') Logout
         else
           span(class='navbar-new-user-welcomer')
             a(class='btn login-btn' href='/users/login') Login
