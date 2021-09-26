@@ -17,9 +17,12 @@
     justify-content: center;
     font-size: 30px;
     margin: inherit;
-    margin-top: -50px;
-    color: lime;
-    text-shadow: 0 0 1px lime, 0 0 4px lime, 0 0 28px lime;
+    margin-top: -35px;
+    color: gainsboro;
+    letter-spacing: 3px;
+    text-shadow:
+    0 0 1px #fff,
+    0 0 8px #fff;
 }
 
 .story-topic {
