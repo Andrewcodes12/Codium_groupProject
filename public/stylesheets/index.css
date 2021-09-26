@@ -49,6 +49,7 @@ body {
   justify-content: space-between;
   margin-left: 20%;
   margin-right: 20%;
+  height: 120px;
 }
 
 .storyContainer {
@@ -98,16 +99,26 @@ text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);;
 text-decoration: none;
 }
 
+
+.addBtnContainer {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
 .btn-add-story{
   border-radius:0.12em;
   box-sizing: border-box;
-  font-family:'Lucida Console',sans-serif;
+  font-family: Unispace;
   font-weight:300;
   color:rgb(73, 250, 102);
   transition: all 0.2s;
   align-content: center;
   text-decoration: none;
 }
+
 
 .btn-add-story:hover{
   color:rgb(183, 243, 183);
@@ -117,8 +128,7 @@ text-decoration: none;
 .nameContainer{
   display: flex;
   gap: 5px;
-  word-spacing: 100px;
-  height: 0px;
+  margin-top: -40px;
 }
 
 .topic {
@@ -127,10 +137,11 @@ text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  z-index: -1;
 }
 
-.topics {
+.topicName {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
 }
 
 .storyAndSub {
@@ -141,4 +152,5 @@ text-decoration: none;
 .date {
   color: gray;
   padding-bottom: -20px;
+  margin-top: -15px;
 }
