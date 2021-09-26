@@ -117,7 +117,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         
 
         const commentData = await commentResponse.json();
-        const { id, userId, firstName, updatedAt } = commentData
+        const { id, userId, firstName, lastName, updatedAt } = commentData
 
         //Creating Edit buttton
         const editBtn = document.createElement('button');
@@ -158,6 +158,22 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         const commenterInfo = document.createElement("div")
         commenterInfo.classList.add('commenterInfo')
 
+        const commenterName = document.createElement('div');
+        commenterName.classList.add('commenterName');
+        commenterName.innerText = 'Created by:'
+
+        const commneterFristName = document.createElement('span');
+        commneterFristName.classList.add('commenter-first-name');
+        commneterFristName.innerText = `${firstName}`
+
+        const commneterLastName = document.createElement('span');
+        commneterLastName.classList.add('commenter-Last-Name');
+        commneterLastName.innerText = `lastName`
+
+        const commentDate = document.createElement('div');
+        commentDate.classList.add('comment-date');
+        commentDate.innerText = `${updatedAt}`
+
         const commentButtons = document.createElement("div")
         commentButtons.classList.add('commentButtons');
 
@@ -181,7 +197,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           deleteBtn.hidden= true
           editBtn.hidden= false
           commentBody.setAttribute("contenteditable","false")
-          commentBody.remove()
+          commentPost.remove()
           event.preventDefault()
 
           try {
@@ -235,8 +251,16 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         commenterInfo.appendChild(commentBody);
         // Appending the users info to the comment
         commentPost.appendChild(commenterInfo)
+        commentPost.appendChild(commenterName)
+        commentPost.appendChild(commentDate)
         // Appending comment to the list of comments
         commentList.appendChild(commentPost);
+        //---------------------------------------------------------------------
+        // Appending users first, last name to user name div
+        commenterName.appendChild(commneterFristName)
+        commenterName.appendChild(commneterLastName)
+        //---------------------------------------------------------------------
+        
         //---------------------------------------------------------------------
         // Appending buttons to comment button div
         commentButtons.appendChild(editBtn);
