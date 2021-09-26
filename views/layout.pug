@@ -23,9 +23,9 @@ html
             div(class="logout-btn")
               button(class='btn btn-sm btn-warning' id="btn-logout" type='submit') Logout
         else
-          span(class='navbar-new-user-welcomer')
-            a(class='btn login-btn' href='/users/login') Login
-            a(class='btn signup-btn' href='/users/signup') Sign Up
+          div(class='navbar-new-user-welcomer')
+            a(class='btn login-btn' href='/users/login' id="btn-login") Login
+            a(class='btn signup-btn' href='/users/signup' id="btn-signup") Sign Up
     div.container
       h2(class='py-4') #{title}
       block content
