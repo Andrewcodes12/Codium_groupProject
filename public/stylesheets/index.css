@@ -20,27 +20,30 @@ body {
   margin-bottom: 35px;
 }
 
-.storyBody > * {
+.storyBody > p {
   padding: 10px;
   direction: ltr;
   text-align: left;
-  font-size: 14px;
-  margin-top: -5px;
-}
-
-.storyBody{
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  align-items: center;
-  background-color: rgba(1,1,1,.5);
-  border: 2px solid black;
-  white-space: normal;
+  font-size: 22px;
+  margin-top: -4px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+#storyBody{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  align-items: center;
   margin-left: 20%;
   margin-right: 20%;
+  background-color: rgba(1,1,1,.5);
+  border: 2px solid black;
+  height: 42px;
 }
+
+
 
 .storyInfo {
   display: flex;
@@ -48,11 +51,12 @@ body {
   justify-content: space-between;
   margin-left: 20%;
   margin-right: 20%;
-  height: 120px;
+  height: auto;
 }
 
 .storyContainer {
-  height: 200px;
+  height: auto;
+  padding: 0px;
 }
 
 .stories {
@@ -66,7 +70,7 @@ body {
 
 .title {
   margin-bottom: -35px;
-  font-size: 26px;
+  font-size: 24px;
   letter-spacing: 3px;
   color: #fff;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
@@ -74,7 +78,8 @@ body {
 }
 
 .subTitle {
-  margin-bottom: -30px;
+  font-size: 18px;
+  margin-top: -5px;
   text-shadow:
   0 0 1px #fff,
   0 0 5px #fff;
@@ -120,21 +125,24 @@ body {
 
 .btn-add-story:hover{
   color:rgb(183, 243, 183);
-  text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 8px #fff
+  text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 8px #fff;
 }
 
 .nameContainer{
   display: flex;
+  justify-content: column;
   gap: 5px;
   margin-top: -40px;
 }
 
 .topic {
   position: relative;
-  top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+}
+
+.topics {
+
 }
 
 .topicName {
@@ -147,10 +155,20 @@ body {
   flex-direction: column;
 }
 
-.date {
+#firstName {
+  position: absolute;
+  bottom: 0;
+}
+
+#lastName {
+  position: absolute;
+  bottom: 0;
+}
+
+#date {
+  position: absolute;
   color: gray;
-  padding-bottom: -20px;
-  margin-top: -15px;
+  bottom: 0;
 }
 
 .footerbar{
@@ -160,5 +178,5 @@ body {
   left: 0;
   position: relative;
   font-size: small;
-  width:100%;
+  width: 100%;
 }
