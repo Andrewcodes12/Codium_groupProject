@@ -1,41 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+.story-title {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    font-family: "checkbookregular";
+    color: lime;
+    letter-spacing: 4px;
+    text-shadow: 0 0 1px lime, 0 0 4px lime, 0 0 28px lime;
+}
 
 .editSub{
     display: flex;
     justify-content: center;
-    font-family: "checkbookregular";
-    font-size: 50px;
+    font-size: 30px;
     margin: inherit;
-    letter-spacing: 2px;
+    margin-top: -35px;
+    color: gainsboro;
+    letter-spacing: 3px;
+    text-shadow:
+    0 0 1px #fff,
+    0 0 8px #fff;
 }
 
-.editTopicName{
+.story-topic {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+}
+
+.story-topic > * {
     font-family: "checkbookregular";
     margin: inherit;
     font-size: 25px;
-    letter-spacing: 2px;
-}
-.editUserName{
-    display: flex;
-    justify-content: center;
-    font-family: "checkbookregular";
-    margin: inherit;
-    font-size: 25px;
-    position: relative;
-    letter-spacing: 2px;
-    right:.5%
-
+    letter-spacing: 4px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.editDate{
-    display: flex;
-    justify-content: center;
-    font-family: "checkbookregular";
-    margin: inherit;
-    font-size: 25px;
-    letter-spacing: 2px;
-}
 
 .storyBodyDiv{
     text-align: center;
