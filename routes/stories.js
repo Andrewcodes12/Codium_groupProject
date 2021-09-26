@@ -21,13 +21,13 @@ const storyValidators = [
   check('title')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Title')
-    .isLength({ max: 255 })
-    .withMessage('Title must not be more than 255 characters long'),
+    .isLength({ max: 50})
+    .withMessage('Title must not be more than 50 characters long'),
   check('subtitle')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for subtitle')
-    .isLength({ max: 100 })
-    .withMessage('subtitle must not be more than 100 characters long'),
+    .isLength({ max: 50 })
+    .withMessage('subtitle must not be more than 50 characters long'),
   check('body')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Body')

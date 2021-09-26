@@ -11,8 +11,6 @@ body {
   background-color: black;
 }
 
-
-
 * {
   box-sizing: border-box;
 }
@@ -85,28 +83,26 @@ body {
 .mainTitle{
   display: flex;
   justify-content: center;
-  font-size: 35px;
-  margin-top: 5px;
+  font-size: 55px;
+  margin: 10px;
   color: lime;
-  text-shadow: 0 0 1px #fff, 0 0 3px #fff;
+  text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 4px rgb(72, 228, 92), 0 0 28px rgb(72, 228, 92);
 }
 
 .btnAddStory{
-display: flex;
-justify-content: center;
-color:rgb(112, 218, 129);
-font-family: Unispace;
-font-size: 20px;
-text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);;
-text-decoration: none;
+  color:rgb(112, 218, 129);
+  font-family: Unispace;
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92), 0 0 10px rgb(72, 228, 92);
+  text-decoration: none;
 }
 
 
 .addBtnContainer {
   display: flex;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 230px;
   width: 500px;
 }
 
