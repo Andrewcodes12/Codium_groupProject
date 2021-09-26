@@ -1,3 +1,167 @@
-h1 {
-    color: #555555;
+@font-face {
+  font-family: 'checkbookregular';
+  src: url('/fonts/checkbook/checkbk0-webfont.woff2') format('woff2'),
+       url('/fonts/checkbook/checkbk0-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body {
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.storyTitle {
+  font-family: "checkbookregular";
+  margin-bottom: 35px;
+}
+
+.storyBody > p {
+  padding: 10px;
+  direction: ltr;
+  text-align: left;
+  font-size: 22px;
+  margin-top: -4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#storyBody{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  align-items: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: rgba(1,1,1,.5);
+  border: 2px solid black;
+  height: 42px;
+}
+
+
+
+.storyInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: auto;
+}
+
+.storyContainer {
+  height: auto;
+  padding: 0px;
+}
+
+.stories {
+  background-color: rgba(1,1,1,.5);
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-bottom: 50px;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+
+.title {
+  margin-bottom: -35px;
+  font-size: 24px;
+  letter-spacing: 3px;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);
+}
+
+.subTitle {
+  font-size: 18px;
+  margin-top: -5px;
+  text-shadow:
+  0 0 1px #fff,
+  0 0 5px #fff;
+}
+
+.mainTitle{
+  display: flex;
+  justify-content: center;
+  font-size: 55px;
+  margin: 10px;
+  color: lime;
+  text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 4px rgb(72, 228, 92), 0 0 28px rgb(72, 228, 92);
+}
+
+.btnAddStory{
+  color:rgb(112, 218, 129);
+  font-family: Unispace;
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92), 0 0 10px rgb(72, 228, 92);
+  text-decoration: none;
+}
+
+
+.addBtnContainer {
+  display: flex;
+  justify-content: center;
+  margin-left: 230px;
+  width: 500px;
+}
+
+.btn-add-story{
+  border-radius:0.12em;
+  box-sizing: border-box;
+  font-family: Unispace;
+  font-weight:300;
+  color:rgb(73, 250, 102);
+  transition: all 0.2s;
+  align-content: center;
+  text-decoration: none;
+}
+
+
+.btn-add-story:hover{
+  color:rgb(183, 243, 183);
+  text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 8px #fff;
+}
+
+.nameContainer{
+  display: flex;
+  justify-content: column;
+  gap: 5px;
+  margin-top: -40px;
+  bottom: 0;
+}
+
+.topic {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.topics {
+
+}
+
+.topicName {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+
+.storyAndSub {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerbar{
+  bottom: 0;
+  color: #707070;
+  height: 2em;
+  left: 0;
+  position: relative;
+  font-size: small;
+  width: 100%;
 }

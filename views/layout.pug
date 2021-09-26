@@ -1,27 +1,41 @@
 doctype html
 html
   head
-      block head
-        title="Codium: The People's App"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
+    title="Codium: Become 1337"
+    link(rel="stylesheet", href="/stylesheets/index.css")
+    link(rel="stylesheet", href="/stylesheets/layout.css")
+    link(rel="stylesheet", href="/stylesheets/login.css")
+    link(rel="stylesheet", href="/stylesheets/new-story.css")
+    link(rel="stylesheet", href="/stylesheets/signup.css")
+    link(rel="stylesheet", href="/stylesheets/story-delete.css")
+    link(rel="stylesheet", href="/stylesheets/story-edit.css")
+    link(rel="stylesheet", href="/stylesheets/story-form-field.css")
+    link(rel="stylesheet", href="/stylesheets/story.css")
   body
-    nav(class='navbar navbar-expand-lg navbar-dark bg-primary')
-      a(class='navbar-brand' href='/') Codium
-      button(class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarText' aria-controls='navbarText' aria-expanded='false' aria-label='Toggle navigation')
-        span(class='navbar-toggler-icon')
-      div(class='collapse navbar-collapse' id='navbarText')
-        ul(class='navbar-nav mr-auto')
-          li(class='nav-item'): a(class='nav-link' href='/') Stories
+    nav(class='navbar')
+      a(class="codiumTextTitle" href='/') CODIUM
+      a(class='navbar-logo-link' href='/')
+      h1(class="Codium-header")
+      div(class='navbar-top-right-container' )
         if locals.authenticated
-          span(class='navbar-text px-4') Welcome #{user.firstName}!
+          span(class='navbar-user-welcomer') Welcome #{user.firstName} #{user.lastName}!
           form(class='form-inline pr-4' action='/users/logout' method='post')
-            button(class='btn btn-sm btn-warning' type='submit') Logout
+            div(class="logout-btn")
+              button(class='btn btn-sm btn-warning' id="btn-logout" type='submit') Logout
         else
-          span(class='navbar-text px-4')
-            a(class='btn btn-sm btn-dark mr-2' href='/users/login') Login
-            a(class='btn btn-sm btn-dark' href='/users/signup') Sign Up
-            a(class='btn btn-sm btn-dark' href='/users/signup') Demo User
-    .container
+          div(class='navbar-new-user-welcomer')
+            a(class='btn login-btn' href='/users/login' id="btn-login") Login
+            a(class='btn signup-btn' href='/users/signup' id="btn-signup") Sign Up
+    div.container
       h2(class='py-4') #{title}
       block content
-      
+
+      block footer
+        footer.footerbar
+          div.githubLogo
+          div(class="githubLinks")
+            img(src="https://api.iconify.design/codicon/github-inverted.svg?color=white" alt="GitHub Icon" class="github")
+            a(href="https://github.com/hgerdes" class="Harrison") Harrison Gerdes
+            a(href="https://github.com/noahSharretts" class="Noah") Noah Sharretts
+            a(href="https://github.com/Andrewcodes12" class="Andrew") Andrew Fava
+        script(src="/javascripts/index.js" type="module" defer)

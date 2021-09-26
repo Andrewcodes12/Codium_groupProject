@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'C64 Pro';
+    src: url('C64Pro.woff2') format('woff2'),
+        url('C64Pro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
