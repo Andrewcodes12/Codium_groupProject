@@ -11,12 +11,9 @@ body {
   background-color: black;
 }
 
-a {
-}
 
 * {
   box-sizing: border-box;
-
 }
 
 .storyTitle {
@@ -52,12 +49,18 @@ a {
   justify-content: space-between;
   margin-left: 20%;
   margin-right: 20%;
+  height: 120px;
 }
 
 .storyContainer {
+  height: 200px;
+}
+
+.stories {
   background-color: rgba(1,1,1,.5);
   margin-left: 20%;
   margin-right: 20%;
+  padding-bottom: 50px;
 
 }
 
@@ -89,34 +92,43 @@ a {
 .btnAddStory{
 display: flex;
 justify-content: center;
-color:rgb(0, 180, 30);
+color:rgb(112, 218, 129);
 font-family: Unispace;
 font-size: 20px;
-text-shadow: 0 0 1px #fff, 0 0 3px #fff;
+text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);;
 text-decoration: none;
+}
+
+
+.addBtnContainer {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
 }
 
 .btn-add-story{
   border-radius:0.12em;
   box-sizing: border-box;
-  font-family:'Lucida Console',sans-serif;
+  font-family: Unispace;
   font-weight:300;
-  color:rgb(0, 180, 30);
+  color:rgb(73, 250, 102);
   transition: all 0.2s;
   align-content: center;
   text-decoration: none;
 }
 
+
 .btn-add-story:hover{
-  color:lime;
-  text-shadow:0 0 1px #fff, 0 0 3px #fff
+  color:rgb(183, 243, 183);
+  text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 8px #fff
 }
 
 .nameContainer{
   display: flex;
   gap: 5px;
-  word-spacing: 100px;
-  height: 0px;
+  margin-top: -40px;
 }
 
 .topic {
@@ -125,10 +137,11 @@ text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  z-index: -1;
 }
 
-.topics {
+.topicName {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
 }
 
 .storyAndSub {
@@ -139,6 +152,7 @@ text-decoration: none;
 .date {
   color: gray;
   padding-bottom: -20px;
+  margin-top: -15px;
 }
 
 .footerbar{

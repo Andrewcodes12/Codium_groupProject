@@ -104,6 +104,7 @@ router.get('/:id(\\d+)',
       where: {
         storyId: storyId
       },
+      order: [["createdAt", "DESC"]],
       include: User
     });
 

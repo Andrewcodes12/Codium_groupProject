@@ -6,9 +6,9 @@ const { check, validationResult } = require('express-validator');
 const { requireAuth } = require('../auth');
 
 
-// GET home page. 
+// GET home page.
 router.get('/', asyncHandler(async(req, res, next) => {
-  const stories = await Story.findAll({include:[Topic,User]})
+  const stories = await Story.findAll({include:[Topic,User], order: [["createdAt", "DESC"]]})
   res.render('index', { title: 'Feed',stories })
 
 }));

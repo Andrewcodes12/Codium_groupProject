@@ -1,7 +1,7 @@
 
 body {
     background: rgb(67,82,64);
-background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
     color: limegreen;
     font-family: Unispace;
     background-attachment: fixed;
@@ -20,23 +20,34 @@ background: radial-gradient(circle, rgba(67,82,64,1) 0%, rgba(0,0,0,1) 100%);
     margin-top: -11px;
 }
 
-.footerbar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color:black;
-    border-top: 3px solid gray;
-}
 .navbar {
     position: fixed;
-    box-sizing: border-box;
-    border-bottom: 3px solid gray;
-    background-color: black;
-    margin-top: -20px;
     display: flex;
-    width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    box-shadow: 0px 0px 20px 0px #ffffff;
+    background-color: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 55px;
+    max-height: 55px;
+    z-index: 1;
+}
+
+.footerbar{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 0px 20px 20px 15px #ffffff;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    font-size: small;
+    width: 100%;
+    min-height: 45px;
+    max-height: 45px;
 }
 
 
