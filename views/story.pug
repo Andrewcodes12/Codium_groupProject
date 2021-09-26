@@ -16,9 +16,9 @@ block content
   div.storyDiv
     div(class="delEditAddBtns")
       div(class="editStoryBtn")
-        a(class='edit-story-btn btn' href=`/stories/edit/${story.id}` role='button') Edit story
+        a(class='edit-story-btn btn' href=`/stories/edit/${story.id}` role='button' id="editBtn") Edit story
       div(class="delStoryBtn")
-        a(class='delete-story-btn btn' href=`/stories/delete/${story.id}` role='button') Delete story
+        a(class='delete-story-btn btn' href=`/stories/delete/${story.id}` role='button' id="delBtn") Delete story
     div(class="likesBox")
       button(id='likes-box' data-story-id= story.id) Likes: #{likesCount}
     h2.commentHeader Comments
