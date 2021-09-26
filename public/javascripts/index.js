@@ -23,11 +23,14 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
   deleteBtnPug.forEach(btns => {
     btns.addEventListener("click", async (event) => {
       const commentBody = event.target.parentElement.previousSibling.previousSibling
+      console.log(commentBody,'here')
       event.target.hidden= true
       event.target.previousSibling.hidden= true
       event.target.nextSibling.hidden= true
       event.target.nextSibling.nextSibling.hidden= true
       commentBody.setAttribute("contenteditable","true")
+      commentBody.previousSibling.previousSibling.previousSibling.remove()
+      commentBody.previousSibling.previousSibling.remove()
       commentBody.remove()
       event.preventDefault()
 
