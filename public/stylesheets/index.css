@@ -11,12 +11,9 @@ body {
   background-color: black;
 }
 
-a {
-}
 
 * {
   box-sizing: border-box;
-
 }
 
 .storyTitle {
@@ -55,9 +52,14 @@ a {
 }
 
 .storyContainer {
+  height: 200px;
+}
+
+.stories {
   background-color: rgba(1,1,1,.5);
   margin-left: 20%;
   margin-right: 20%;
+  padding-bottom: 50px;
 
 }
 
@@ -89,10 +91,10 @@ a {
 .btnAddStory{
 display: flex;
 justify-content: center;
-color:rgb(0, 180, 30);
+color:rgb(112, 218, 129);
 font-family: Unispace;
 font-size: 20px;
-text-shadow: 0 0 1px #fff, 0 0 3px #fff;
+text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);;
 text-decoration: none;
 }
 
@@ -101,15 +103,15 @@ text-decoration: none;
   box-sizing: border-box;
   font-family:'Lucida Console',sans-serif;
   font-weight:300;
-  color:rgb(0, 180, 30);
+  color:rgb(73, 250, 102);
   transition: all 0.2s;
   align-content: center;
   text-decoration: none;
 }
 
 .btn-add-story:hover{
-  color:lime;
-  text-shadow:0 0 1px #fff, 0 0 3px #fff
+  color:rgb(183, 243, 183);
+  text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 8px #fff
 }
 
 .nameContainer{
@@ -139,14 +141,4 @@ text-decoration: none;
 .date {
   color: gray;
   padding-bottom: -20px;
-}
-
-.footerbar{
-  bottom: 0;
-  color: #707070;
-  height: 2em;
-  left: 0;
-  position: relative;
-  font-size: small;
-  width:100%;
 }

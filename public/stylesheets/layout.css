@@ -20,25 +20,33 @@ body {
     margin-top: -11px;
 }
 
-.footerbar {
-    bottom: 0;
-    color: #707070;
-    height: 2em;
-    left: 0;
-    position: relative;
-    font-size: small;
-    width:100%;
-}
 .navbar {
     position: fixed;
-    box-sizing: border-box;
-    border-bottom: 3px solid gray;
-    background-color: black;
-    margin-top: -20px;
     display: flex;
-    width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    box-shadow: 0px 0px 20px 0px #ffffff;
+    background-color: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 55px;
+    max-height: 55px;
+}
+
+.footerbar{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 0px 20px 20px 15px #ffffff;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    font-size: small;
+    width: 100%;
+    min-height: 45px;
+    max-height: 45px;
 }
 
 
