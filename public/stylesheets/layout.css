@@ -106,6 +106,47 @@ body {
     box-shadow: 0 0 10px 03px lime;
     color: rgb(47, 47, 47);
     border: none;
+    transition-duration: .2s;
+ }
+
+ #btn-login {
+    font-size: 20px;
+    background-color: lime;
+    box-shadow: 0 0 10px 03px lime;
+    color: rgb(47, 47, 47);
+    border: none;
+    text-decoration: none;
+    transition-duration: .2s;
+ }
+
+ #btn-signup {
+    font-size: 20px;
+    background-color: lime;
+    box-shadow: 0 0 10px 03px lime;
+    color: rgb(47, 47, 47);
+    border: none;
+    text-decoration: none;
+    transition-duration: .2s;
+ }
+
+ #btn-logout:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
+ }
+
+
+ #btn-signup:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
+ }
+
+ #btn-login:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
+ }
+
+ .navbar-new-user-welcomer {
+     margin-top: -6px;
  }
 
 .navbar {
