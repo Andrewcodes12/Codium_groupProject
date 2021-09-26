@@ -244,15 +244,14 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           })
         //--------------------------------------------------------------------
         // Appending buttons to the users input text
-        commentBody.appendChild(commentButtons)
+        commentBody.appendChild(commentContent)
         // Appending a div to button div
-        commentButtons.appendChild(commentContent);
-        // Appending the the users text input to user info
-        commenterInfo.appendChild(commentBody);
+        commentBody.appendChild(commentButtons);
         // Appending the users info to the comment
         commentPost.appendChild(commenterInfo)
         commentPost.appendChild(commenterName)
         commentPost.appendChild(commentDate)
+        commentPost.appendChild(commentBody)
         // Appending comment to the list of comments
         commentList.appendChild(commentPost);
         //---------------------------------------------------------------------
