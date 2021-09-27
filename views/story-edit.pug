@@ -13,7 +13,7 @@ block content
       input(type='text' name='subtitle' value=story.subtitle class='editedSubtitle' required)
     div.editText
       label(for="body") Body
-      textarea(name="body" value=story.body class='editedBody' required)
+      textarea(name="body" value=story.body class='editedBody' required) #{story.body}
     div.editTopic
       select(name="topic" required)
         label(for="topic") Topic
