@@ -203,7 +203,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           deleteBtn.hidden= true
           editBtn.hidden= false
           commentBody.setAttribute("contenteditable","false")
-          commentID.remove()
+          comments.remove()
           event.preventDefault()
 
           try {
