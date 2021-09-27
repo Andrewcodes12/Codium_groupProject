@@ -253,7 +253,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         commentPost.appendChild(commentDate)
         commentPost.appendChild(commentBody)
         // Appending comment to the list of comments
-        commentList.appendChild(commentPost);
+        commentList.prepend(commentPost);
         //---------------------------------------------------------------------
         // Appending users first, last name to user name div
         commenterName.appendChild(commneterFristName)
