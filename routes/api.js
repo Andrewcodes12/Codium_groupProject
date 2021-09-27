@@ -73,7 +73,6 @@ router.post(
   asyncHandler(async (req, res, next) => {
     const commentId = parseInt(req.params.id, 10);
     const comment = await Comment.findByPk(commentId);
-    console.log(comment)
     if (comment) {
       await comment.update({ body: req.body.body });
       res.json({ comment });

@@ -3,8 +3,6 @@ block content
   h3.mainTitle=title
 
   div.bodyContainer
-    div(class="addBtnContainer")
-      a(class="btn-add-story btnAddStory" href='/stories/new' role='button') Add a Story
     div(class='stories')
       each story in stories
         div.storyContainer
@@ -15,7 +13,10 @@ block content
                   h2.storyTitle= story.title
               div(class='subTitle')
                 h3.subtitle= story.subtitle
-            div(class='topic')
+
+          div(class='storyBody' id="storyBody")
+              p= story.body
+          div(class='topic')
               div(class="topicName")
                 h4.topics= story.Topic.name
               div(class="nameContainer")
@@ -25,5 +26,4 @@ block content
                   h5.lastName= story.User.lastName
                 div(id="date")
                   h5.date= story.createdAt.toDateString()
-          div(class='storyBody' id="storyBody")
-              p= story.body
+          hr

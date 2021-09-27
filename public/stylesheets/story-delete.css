@@ -1,4 +1,7 @@
 .btn{
-
+    font-family: "C64 Pro";
+    border: none;
+    background-color: lime;
+    box-shadow: 0 0 10px 03px lime;
+    text-transform: uppercase;
 }
-

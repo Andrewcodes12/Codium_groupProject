@@ -2,47 +2,53 @@ extends layout.pug
 
 
 block content
-  div(class='story-title')
-    h2= story.title
-  div(class='story-subtitle')
-    h3.editSub= story.subtitle
+  div(class="storyAndTitle")
+    div(class='story-title')
+      h2= story.title
+    div(class='story-subtitle')
+      h3.editSub= story.subtitle
   div(class='story-topic')
-    h4.editTopicName= story.Topic.name
-    h5.editUserName= `${story.User.firstName} ${story.User.lastName}`
-    h5.editDate= story.createdAt.toDateString()
+    div(class="topicName")
+      h4.editTopicName= story.Topic.name
+    div(class="userAndDate")
+      h5.editUserName= `${story.User.firstName} ${story.User.lastName}`
+      h5.editDate= story.createdAt.toDateString()
   div(class='body2')
   div.storyBodyDiv
     p.storyBody= story.body
   div.storyDiv
     div(class="delEditAddBtns")
-      div(class="editStoryBtn")
-        a(class='edit-story-btn btn' href=`/stories/edit/${story.id}` role='button') Edit story
-      div(class="delStoryBtn")
-        a(class='delete-story-btn btn' href=`/stories/delete/${story.id}` role='button') Delete story
+      if ( locals.user && locals.user.id === story.userId )
+        div(class="editStoryBtn")
+          a(class='edit-story-btn btn' href=`/stories/edit/${story.id}` id="delBtn" role='button') EDIT STORY
+        div(class="delStoryBtn")
+          a(class='delete-story-btn btn' href=`/stories/delete/${story.id}` id="editBtn" role='button') DELETE STORY
     div(class="likesBox")
-      button(id='likes-box' data-story-id= story.id) Likes: #{likesCount}
-    h2.commentHeader Comments
+      button(id='likes-box' data-story-id= story.id) LIKES: #{likesCount}
+    div(class="commentHeader")
+      h2.commentHeader Leave a comment:
     div.commentContainer
       div.commentBox
       div(class='commentBoxForm')
         input(id='token' type='hidden' name='_csrf' value=csrfToken)
         textarea(name="body" class='user-comment-input' required)
-        div.submitBtn
-        button(id='submitBtn' data-story-id=story.id) Submit
+      div.submitButton
+        button(id='submitBtn' data-story-id=story.id) SUBMIT
       div.commentList
         each comment in comments
-          div(class=`comment-${comment.id}`)
+          div(class="comments")
+            div(class=`comment-${comment.id}`)
             div(class='commenterInfo')
-            div(class='commenterName') Created by:
-              span(id='commenter-first-name')= comment.User.firstName
-              span(id='commenter-last-name')= comment.User.lastName
-            div(class='comment-date')= comment.createdAt.toDateString()
-            input(type='hidden', value=`${comment.id}`, id=`${comment.id}`)
+            div(class='commentInfo')
+              div(class="commenterName")
+                span(id='commenter-first-name')= comment.User.firstName
+                span(id='commenter-last-name')= comment.User.lastName
+              div(class='comment-date')= comment.createdAt.toDateString()
             div(class='commentBody' contenteditable="false")= comment.body
+                div(class="commentContent")
             if locals.authenticated && locals.user.id === comment.userId
-              div(class="commentContent" )
               div(class="commentButtons")
                 button(class=`editBtn editBtn-${comment.id} btn`) Edit
-                button(class=`deleteBtn deleteBtn-${comment.id} btn` data-comment-id= comment.id) Delete
+                button(class=`deleteBtn deleteBtn-${comment.id} btn`  data-comment-id= comment.id) Delete
                 button(class=`editCancelBtn editCancelBtn-${comment.id} btn` hidden) Cancel
                 button(class=`editSubmitBtn editSubmitBtn-${comment.id} btn` hidden data-comment-id= comment.id ) Submit

@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     Story.belongsTo(models.Topic, {
       foreignKey: 'topicId'
     });
+    Story.hasMany(models.Comment, { 
+      foreignKey: 'storyId', onDelete: 'CASCADE', hooks: true 
+    })
+    Story.hasMany(models.Like, { 
+      foreignKey: 'storyId', onDelete: 'CASCADE', hooks: true 
+    })
   };
   return Story;
 };

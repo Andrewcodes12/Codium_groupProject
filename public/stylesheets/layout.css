@@ -7,6 +7,16 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: Unispace;
+    src: url('/fonts/unispace/unispace_rg-webfont.woff2') format('woff2'),
+        url('/fonts/unispace/unispace_rg-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 
 body:before {
     content: " ";
@@ -101,6 +111,8 @@ body {
 
 #btn-logout {
     font-size: 20px;
+    font-family: "C64 Pro";
+    text-transform: uppercase;
     background-color: lime;
     box-shadow: 0 0 10px 03px lime;
     color: rgb(47, 47, 47);
@@ -110,6 +122,8 @@ body {
 
  #btn-login {
     font-size: 20px;
+    font-family: "C64 Pro";
+    text-transform: uppercase;
     background-color: lime;
     box-shadow: 0 0 10px 03px lime;
     color: rgb(47, 47, 47);
@@ -120,6 +134,8 @@ body {
 
  #btn-signup {
     font-size: 20px;
+    font-family: "C64 Pro";
+    text-transform: uppercase;
     background-color: lime;
     box-shadow: 0 0 10px 03px lime;
     color: rgb(47, 47, 47);
@@ -198,8 +214,9 @@ body {
 
 .navbar-user-welcomer {
     font-family: Unispace;
+    letter-spacing: 3px;
     font-size: 22px;
-    margin-top: -5px;
+    margin-top: 0px;
     color: gainsboro;
     text-shadow:
     0 0 1px #fff,
@@ -219,6 +236,13 @@ body {
     padding: 5px;
     font-size: 14px;
     color: black;
+}
+
+.addStoryButton {
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-inline {

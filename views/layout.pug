@@ -19,6 +19,9 @@ html
       div(class='navbar-top-right-container' )
         if locals.authenticated
           span(class='navbar-user-welcomer') Welcome #{user.firstName} #{user.lastName}!
+
+          div(class="addStoryButton")
+            a(class="btn-add-story btnAddStory" id="btn-addStory" href="/stories/new") Post your 1337
           form(class='form-inline pr-4' action='/users/logout' method='post')
             div(class="logout-btn")
               button(class='btn btn-sm btn-warning' id="btn-logout" type='submit') Logout

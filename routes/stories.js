@@ -226,7 +226,7 @@ router.post('/:id(\\d+)/comments',
     const validationErrors = validationResult(req);
 
     const user = await User.findByPk(req.session.auth.userId);
-    const { firstName, id: userId } = user;
+    const { firstName, lastName, id: userId } = user;
 
     if (validationErrors.isEmpty()) {
       await comment.save();
@@ -236,6 +236,7 @@ router.post('/:id(\\d+)/comments',
         userId,
         body,
         firstName,
+        lastName,
         updatedAt: updatedAt.toDateString()
       })
     } else {

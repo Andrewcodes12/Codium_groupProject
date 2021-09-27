@@ -2,9 +2,18 @@
     box-sizing: border-box;
 }
 
+.storyAndTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 .story-title {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    align-items: left;
     font-size: 40px;
     font-family: "checkbookregular";
     color: lime;
@@ -14,52 +23,83 @@
 
 .editSub{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     font-size: 30px;
     margin: inherit;
-    margin-top: -50px;
-    color: lime;
-    text-shadow: 0 0 1px lime, 0 0 4px lime, 0 0 28px lime;
+    margin-top: -35px;
+    color: white;
+    letter-spacing: 3px;
+    text-shadow:
+    0 0 1px #fff,
+    0 0 8px #fff;
 }
 
 .story-topic {
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: -55px;
 }
 
 .story-topic > * {
     font-family: "checkbookregular";
-    margin: inherit;
     font-size: 25px;
     letter-spacing: 4px;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
+.topicName {
+    margin-right: 30%;
+    color: white;
+    text-shadow:
+    0 0 0px #fff,
+    0 0 12px #fff;
+}
+
+.userAndDate {
+    display: flex;
+    gap: 40px;
+    justify-content: row;
+    margin-left: 60px;
+}
+
+.editUserName {
+    color: lime;
+    font-size: 28px;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
+}
+
+.editTopicName {
+    margin-top: 40px;
+}
+
+.editDate {
+    margin-top: 50px;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
+}
 
 .storyBodyDiv{
-    text-align: center;
-    vertical-align: middle;
-    background: linear-gradient(
-        to bottom,
-        rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.25) 50%
-    );
+    text-align: left;
+    padding-left: 15px;
+    background-color:  rgba(0, 0, 0, 0.4);
     background-size: 20% 3px;
     z-index: 2;
     pointer-events: none;
     background-attachment: fixed;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 3px solid rgb(47, 47, 47);
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .storyBody{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "C64 Pro";
+    color: lime;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
     font-size: 20px;
     letter-spacing: 2px;
+    direction: ltr;
 }
 
 .delEditAddBtns {
@@ -68,35 +108,53 @@
     justify-content: center;
 }
 
-.editStoryBtn {
-    display: flex;
-}
-
-.delStoryBtn {
-    display: flex;
-}
-
-.edit-story-btn{
+.delEditAddBtns > * {
     text-align: center;
-    width: 120px;
+    width: 190px;
+    margin-bottom: 20px;
 }
 
-.delete-story-btn{
-    text-align: center;
-    width: 120px;
+#editBtn {
+    background-color: rgb(139, 248, 139);
+    font-size: 15px;
+    box-shadow: 0px 0px 10px 3px rgb(139, 248, 139);
+    text-decoration: none;
+    font-family: "C64 Pro";
+}
+
+#editBtn:hover {
+    transition-duration: .2s;
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 3px gainsboro;
+}
+
+#delBtn {
+    background-color: rgb(139, 248, 139);
+    font-size: 15px;
+    box-shadow: 0px 0px 10px 3px rgb(139, 248, 139);
+    text-decoration: none;
+    font-family: "C64 Pro";
+}
+
+#delBtn:hover {
+    transition-duration: .2s;
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 3px gainsboro;
 }
 
 .likesBox {
     display: flex;
+    margin-top: 5px;
+    height: 27px;
     justify-content: center;
+    text-align: center;
 }
 
 #likes-box {
-    font-size: 20px;
+    font-size: 15px;
+    font-family: "C64 Pro";
     width: auto;
-    height: 30px;
     background-color: lime;
-    margin-top: 5px;
     border: none;
     box-shadow: 0px 0px 10px 3px limegreen;
 }
@@ -107,9 +165,17 @@
     box-shadow: 0 0 10px 3px gainsboro;
 }
 
+.commentContainer {
+    padding-bottom: 90px;
+}
+
 .commentHeader{
     display: flex;
     justify-content: center;
+    margin-bottom: 0px;
+    letter-spacing: 3px;
+    color: lime;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
 }
 
 .commentContainer{
@@ -118,9 +184,12 @@
     margin-right: auto;
 }
 
+.commentBoxForm {
+    display: flex;
+    justify-content: center;
+}
 
 .user-comment-input{
-    width: 500%;
     height: 150px;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -132,62 +201,101 @@
     resize: none;
 }
 
-#submitBtn{
+.submitButton {
     display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#submitBtn{
+    background-color: rgb(139, 248, 139);
+    width: 90px;
+    height: 30px;
     font-size: 15px;
-    border-radius: 4px;
-    background-color: rgba(255, 249, 249, 0.24);
-    transition-duration:.4s;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    box-shadow: 0px 0px 10px 3px  rgb(139, 248, 139);
+    text-decoration: none;
+    font-family: "C64 Pro";
+    border: none;
 }
 
 #submitBtn:hover{
-    background-color:rgb(119, 255, 85);
-    color: black;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: .2s;
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 3px gainsboro;
 }
 
-.commentList{
+.comments {
     text-align: center;
     vertical-align: middle;
+    z-index: 2;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 75px;
+}
+
+.comment-date{
+    display: flex;
+    position: absolute;
+}
+
+.commentBody{
+    text-align: left;
+    padding-left: 15px;
     background: linear-gradient(
         to bottom,
         rgba(18, 16, 16, 0) 50%,
         rgba(0, 0, 0, 0.25) 50%
     );
     background-size: 20% 3px;
-    z-index: 2;
+    background-attachment: fixed;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 3px solid rgb(0, 0, 0);
+    margin-top: 10px;
+    margin-bottom: 30px;
+    overflow-wrap: break-word;
+    text-shadow: 0 0 1px lime, 0 0 10px lime;
+    letter-spacing: 3px;
 }
 
-.commenterName{
+.commentButtons {
+    margin-top: -30px;
+}
+
+.commentButtons > * {
+    font-family: "C64 Pro";
+    background-color: rgb(139, 248, 139);
+    box-shadow: 0px 0px 10px 3px rgb(139, 248, 139);
+    text-transform: uppercase;
+    border: none;
+}
+
+.commentButtons > *:hover {
+    transition-duration: .2s;
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 3px gainsboro;
+}
+
+.comment-date {
+    margin-left: 200px;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
+    letter-spacing: 3px;
+}
+
+.commentInfo {
     display: flex;
-    justify-content: center;
-    gap: 5px;
+    flex-direction: row;
+    justify-content: space-be;
+    margin-left: 20%;
+    margin-right: 20%;
+    gap: 10px;
 }
 
-.commenter-first-name{
-
-}
-
-.commenter-last-name{
-
-}
-
-.comment-date{
-display: flex;
-position: absolute;
-
-
-}
-
-.commentBody{
-    border-top: 2px solid rgba(0, 0, 0, 0.25);
-}
-
-.commentContent{
-
-}
-
-.commentButtons{
-    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+.commenterName {
+    display: flex;
+    letter-spacing: 3px;
+    gap: 6px;
+    color: lime;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
 }
