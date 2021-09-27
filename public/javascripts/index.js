@@ -153,26 +153,30 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         editSubmitBtn.innerText = 'Submit'
         //-------------------------------------------------------
         //Create divs for comment
-        const commentPost = document.createElement('div');
-        commentPost.className += `comment-${id}`;
+        const commentID = document.createElement('div');
+        commentID.className += `comment-${id}`;
 
         const comments = document.createElement('div');
         comments.classList.add('comments')
 
         const commenterInfo = document.createElement("div")
-        commenterInfo.classList.add('commenterInfo')
+        commenterInfo.classList.add('commentInfo')
+
+        const commentBugInfo = document.createElement('div');
+        commentBugInfo.classList.add('commneterInfo');
 
         const commenterName = document.createElement('div');
-        commenterName.classList.add('commenterName');
-        commenterName.innerText = 'Created by:'
+        commenterName.classList.add('commenterNameContainer');
 
         const commneterFristName = document.createElement('span');
         commneterFristName.setAttribute('id', 'commenter-first-name');
         commneterFristName.innerText = `${firstName}`
 
+        const divPlaceholder = document.createElement('div')
+
         const commneterLastName = document.createElement('span');
-        commneterLastName.setAttribute('id', 'commenter-last-Name');
-        commneterLastName.innerText = `lastName`
+        commneterLastName.setAttribute('id', 'commenter-last-name');
+        commneterLastName.innerText = `${lastName}`
 
         const commentDate = document.createElement('div');
         commentDate.classList.add('comment-date');
@@ -201,7 +205,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           deleteBtn.hidden= true
           editBtn.hidden= false
           commentBody.setAttribute("contenteditable","false")
-          commentPost.remove()
+          commentID.remove()
           event.preventDefault()
 
           try {
@@ -246,31 +250,33 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
               console.log("Failed to fetch comments", e);
             }
           })
-        //--------------------------------------------------------------------
-        // Appending buttons to the users input text
-        commentBody.appendChild(commentContent)
-        // Appending a div to button div
-        commentBody.appendChild(commentButtons);
-        // Appending the users info to the comment
-        commentPost.appendChild(commenterInfo)
-        commentPost.appendChild(commenterName)
-        commentPost.appendChild(commentDate)
-        commentPost.appendChild(commentBody)
-        // Appending comment to the list of comments
-        comments.appendChild(commentPost);
-        commentList.prepend(comments);
-        //---------------------------------------------------------------------
-        // Appending users first, last name to user name div
-        commenterName.appendChild(commneterFristName)
-        commenterName.appendChild(commneterLastName)
-        //---------------------------------------------------------------------
-
-        //---------------------------------------------------------------------
         // Appending buttons to comment button div
         commentButtons.appendChild(editBtn);
         commentButtons.appendChild(deleteBtn);
         commentButtons.appendChild(editCancelBtn);
         commentButtons.appendChild(editSubmitBtn);
+        //---------------------------------------------------------------------
+        // Appending users first, last name to user name div
+        commenterName.appendChild(commneterFristName)
+        commenterName.appendChild(commneterLastName)
+        //--------------------------------------------------------------------
+        // Appending buttons to the users input text
+        commentBody.appendChild(commentContent)
+        // Appending a div to button div
+        // Appending the users info to the comment
+        commenterInfo.appendChild(commenterName)
+        commenterInfo.appendChild(commentDate)
+        comments.appendChild(commentID);
+        comments.appendChild(commentBugInfo)
+        // comments.appendChild(divPlaceholder)
+        comments.appendChild(commenterInfo)
+        comments.appendChild(commentBody)
+        comments.appendChild(commentButtons);
+        // Appending comment to the list of comments
+        commentList.prepend(comments);
+        //---------------------------------------------------------------------
+        //---------------------------------------------------------------------
+        
         //---------------------------------------------------------------------
         // Setting buttonto be hidden by defualt
         editCancelBtn.hidden= true

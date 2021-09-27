@@ -220,9 +220,7 @@
     box-shadow: 0 0 10px 3px gainsboro;
 }
 
-.commentList{
 
-}
 
 .comments {
     text-align: center;
@@ -234,19 +232,9 @@
     margin-right: 20%;
 }
 
-.commenterName{
-    display: flex;
-    gap: 6px;
-    margin-left: -5px;
-}
 
-.commenter-first-name{
 
-}
 
-.commenter-last-name{
-
-}
 
 .comment-date{
     display: flex;
@@ -271,13 +259,12 @@
     overflow-wrap: break-word;
 }
 
-.commentContent{
 
-}
 
 .commentButtons {
     font-family: "C64 Pro";
-    margin-top: -30px;
+    margin-top: 60px;
+
 }
 
 .comment-date {
