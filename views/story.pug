@@ -44,11 +44,10 @@ block content
                 span(id='commenter-first-name')= comment.User.firstName
                 span(id='commenter-last-name')= comment.User.lastName
               div(class='comment-date')= comment.createdAt.toDateString()
-
-            input(type='hidden', value=`${comment.id}`, id=`${comment.id}`)
+            //- input(type='hidden', value=`${comment.id}`, id=`${comment.id}`)
             div(class='commentBody' contenteditable="false")= comment.body
+                div(class="commentContent")
             if locals.authenticated && locals.user.id === comment.userId
-              div(class="commentContent")
               div(class="commentButtons")
                 button(class=`editBtn editBtn-${comment.id} btn`) Edit
                 button(class=`deleteBtn deleteBtn-${comment.id} btn`  data-comment-id= comment.id) Delete
