@@ -2,12 +2,27 @@
 
 }
 
+.btn-demo {
+    transform: .2;
+}
+
+.btn-demo:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
+}
+
 py-4 {
 
 }
 
-.btn{
+.btn-primary:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
+}
 
+.btn-warning:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
 }
 
 .signup{
