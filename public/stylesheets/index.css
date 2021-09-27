@@ -172,6 +172,11 @@ hr {
   letter-spacing: 2px;
 }
 
+.date {
+  color: rgb(37, 149, 37);
+  letter-spacing: 4px;
+}
+
 .topicName {
   color: rgb(255, 255, 255);
   text-shadow:0 0 1px #fff, 0 0 3px #fff,  0 0 14px #fff;

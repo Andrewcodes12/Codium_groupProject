@@ -1,5 +1,4 @@
 
-
 window.addEventListener("DOMContentLoaded", async (event) =>{
   const commentList = document.querySelector('.commentList')
   const commentBtn = document.querySelector('#submitBtn')
