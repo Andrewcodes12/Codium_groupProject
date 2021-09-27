@@ -214,6 +214,7 @@ body {
 
 .navbar-user-welcomer {
     font-family: Unispace;
+    letter-spacing: 3px;
     font-size: 22px;
     margin-top: 0px;
     color: gainsboro;

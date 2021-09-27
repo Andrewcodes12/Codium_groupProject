@@ -115,9 +115,9 @@
 }
 
 #editBtn {
-    background-color: lime;
+    background-color: rgb(139, 248, 139);
     font-size: 15px;
-    box-shadow: 0px 0px 10px 3px limegreen;
+    box-shadow: 0px 0px 10px 3px rgb(139, 248, 139);
     text-decoration: none;
     font-family: "C64 Pro";
 }
@@ -129,9 +129,9 @@
 }
 
 #delBtn {
-    background-color: lime;
+    background-color: rgb(139, 248, 139);
     font-size: 15px;
-    box-shadow: 0px 0px 10px 3px limegreen;
+    box-shadow: 0px 0px 10px 3px rgb(139, 248, 139);
     text-decoration: none;
     font-family: "C64 Pro";
 }
@@ -265,8 +265,8 @@
 
 .commentButtons > * {
     font-family: "C64 Pro";
-    background-color: lime;
-    box-shadow: 0px 0px 10px 3px lime;
+    background-color: rgb(139, 248, 139);
+    box-shadow: 0px 0px 10px 3px rgb(139, 248, 139);
     text-transform: uppercase;
     border: none;
 }

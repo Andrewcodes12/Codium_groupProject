@@ -61,24 +61,18 @@
     color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 6px rgb(72, 228, 92);
-
-
 }
 
-.editor {
-    display: flex;
-    justify-content: center;
-    color: white;
-}
-
-input[type=text] {
+input {
     background-color: rgba(0, 0, 0, 0.4);
     border-bottom: 2px solid rgb(119, 255, 85);
     color: rgb(255, 255, 255);
+    font-family: "Unispace";
 }
 
 
 textarea {
+    font-family: "C64 Pro";
     width: 50%;
     height: 150px;
     padding: 12px 20px;
@@ -99,33 +93,42 @@ select {
     background-color: rgb(119, 255, 85);
 }
 
-.updateBtn {
+.editor {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+#updBtn {
     font-size: 15px;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.24);
+    font-family: "C64 Pro";
+    border: none;
+    background-color: lime;
+    text-transform: uppercase;
     transition-duration: .4s;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.updateBtn:hover {
-    background-color: rgb(119, 255, 85);
-    color: black;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
-
-.cancelEdit {
-    background-color: rgba(0, 0, 0, 0.24);
-    color: black;
-    padding: 1em 1.5em;
-    border-radius: 4px;
-    font-size: 15px;
+    box-shadow: 0 0 10px 03px lime;
     text-decoration: none;
-    transition-duration: .4s;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.cancelEdit:hover {
-    background-color: rgb(119, 255, 85);
+#updBtn:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
+}
+
+#cclBtn {
+    font-size: 15px;
+    font-family: "C64 Pro";
+    border: none;
+    background-color: lime;
+    text-transform: uppercase;
+    transition-duration: .4s;
+    box-shadow: 0 0 10px 03px lime;
     color: black;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    text-decoration: none;
+}
+
+#cclBtn:hover {
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 03px gainsboro;
 }

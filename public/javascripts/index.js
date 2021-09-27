@@ -9,7 +9,6 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
   editBtnPug.forEach(btns => {
     btns.addEventListener("click", async event => {
       const commentBody = event.target.parentElement.previousSibling
-      console.log(commentBody,'here')
       event.target.hidden= true
       event.target.nextSibling.hidden= true
       event.target.nextSibling.nextSibling.hidden= false
@@ -274,7 +273,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         commentList.prepend(comments);
         //---------------------------------------------------------------------
         //---------------------------------------------------------------------
-        
+
         //---------------------------------------------------------------------
         // Setting buttonto be hidden by defualt
         editCancelBtn.hidden= true
