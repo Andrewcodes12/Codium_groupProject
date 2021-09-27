@@ -199,7 +199,7 @@ body {
 .navbar-user-welcomer {
     font-family: Unispace;
     font-size: 22px;
-    margin-top: -5px;
+    margin-top: 0px;
     color: gainsboro;
     text-shadow:
     0 0 1px #fff,
@@ -219,6 +219,13 @@ body {
     padding: 5px;
     font-size: 14px;
     color: black;
+}
+
+.addStoryButton {
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-inline {

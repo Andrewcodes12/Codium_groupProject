@@ -77,7 +77,6 @@
     text-align: center;
     width: 190px;
     margin-bottom: 20px;
-
 }
 
 #editBtn {
@@ -100,7 +99,6 @@
     box-shadow: 0px 0px 10px 3px limegreen;
     text-decoration: none;
     font-family: "C64 Pro";
-
 }
 
 #delBtn:hover {
@@ -108,7 +106,6 @@
     background-color: gainsboro;
     box-shadow: 0 0 10px 3px gainsboro;
 }
-
 
 .likesBox {
     display: flex;
