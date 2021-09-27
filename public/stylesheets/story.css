@@ -236,8 +236,8 @@
 
 .commenterName{
     display: flex;
-    justify-content: center;
-    gap: 5px;
+    gap: 6px;
+    margin-left: -5px;
 }
 
 .commenter-first-name{
@@ -280,12 +280,6 @@
     margin-top: -30px;
 }
 
-.commenterNameContainer {
-    display: flex;
-    gap: 6px;
-    margin-left: -5px;
-}
-
 .comment-date {
     margin-left: 100px;
 }
@@ -293,7 +287,7 @@
 .commentInfo {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-be;
     margin-left: 20%;
     margin-right: 20%;
     gap: 10px;

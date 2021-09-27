@@ -40,11 +40,10 @@ block content
             div(class=`comment-${comment.id}`)
             div(class='commenterInfo')
             div(class='commentInfo')
-              div(class="commenterNameContainer")
+              div(class="commenterName")
                 span(id='commenter-first-name')= comment.User.firstName
                 span(id='commenter-last-name')= comment.User.lastName
               div(class='comment-date')= comment.createdAt.toDateString()
-
             input(type='hidden', value=`${comment.id}`, id=`${comment.id}`)
             div(class='commentBody' contenteditable="false")= comment.body
             if locals.authenticated && locals.user.id === comment.userId

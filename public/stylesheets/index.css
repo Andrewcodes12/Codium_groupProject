@@ -47,8 +47,8 @@ body {
 }
 
 hr {
-  border-color:  lime;
-  box-shadow: 0px 0px 6px 1px lime;
+  border-color:  rgb(127, 230, 127);
+  box-shadow: 0px 0px 6px 1px rgb(127, 230, 127);;
   width: 60%;
 }
 
@@ -147,7 +147,7 @@ hr {
 }
 
 .submitBtn {
-  
+
 }
 
 /* contains date and name, and topics containers */
