@@ -101,6 +101,8 @@ hr {
   font-size: 55px;
   margin: 10px;
   color: lime;
+  letter-spacing: 24px;
+  text-transform: uppercase;
   text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 4px rgb(72, 228, 92), 0 0 28px rgb(72, 228, 92);
 }
 

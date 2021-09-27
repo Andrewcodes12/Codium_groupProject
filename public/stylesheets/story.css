@@ -66,6 +66,7 @@
 .editUserName {
     color: lime;
     font-size: 28px;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
 }
 
 .editTopicName {
@@ -74,6 +75,7 @@
 
 .editDate {
     margin-top: 50px;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
 }
 
 .storyBodyDiv{
@@ -86,7 +88,7 @@
     background-attachment: fixed;
     margin-left: 20%;
     margin-right: 20%;
-    border: 3px solid black;
+    border: 3px solid rgb(47, 47, 47);
     margin-top: 10px;
     margin-bottom: 30px;
 }
@@ -171,6 +173,9 @@
     display: flex;
     justify-content: center;
     margin-bottom: 0px;
+    letter-spacing: 3px;
+    color: lime;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
 }
 
 .commentContainer{
@@ -220,21 +225,14 @@
     box-shadow: 0 0 10px 3px gainsboro;
 }
 
-
-
 .comments {
     text-align: center;
     vertical-align: middle;
-    background-size: 20% 3px;
     z-index: 2;
-    padding-bottom: 100px;
     margin-left: 20%;
     margin-right: 20%;
+    padding-bottom: 75px;
 }
-
-
-
-
 
 .comment-date{
     display: flex;
@@ -253,22 +251,36 @@
     background-attachment: fixed;
     margin-left: 20%;
     margin-right: 20%;
-    border: 3px solid black;
+    border: 3px solid rgb(0, 0, 0);
     margin-top: 10px;
     margin-bottom: 30px;
     overflow-wrap: break-word;
+    text-shadow: 0 0 1px lime, 0 0 10px lime;
+    letter-spacing: 3px;
 }
 
-
-
 .commentButtons {
-    font-family: "C64 Pro";
-    margin-top: 60px;
+    margin-top: -30px;
+}
 
+.commentButtons > * {
+    font-family: "C64 Pro";
+    background-color: lime;
+    box-shadow: 0px 0px 10px 3px lime;
+    text-transform: uppercase;
+    border: none;
+}
+
+.commentButtons > *:hover {
+    transition-duration: .2s;
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 3px gainsboro;
 }
 
 .comment-date {
-    margin-left: 100px;
+    margin-left: 200px;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
+    letter-spacing: 3px;
 }
 
 .commentInfo {
@@ -278,4 +290,12 @@
     margin-left: 20%;
     margin-right: 20%;
     gap: 10px;
+}
+
+.commenterName {
+    display: flex;
+    letter-spacing: 3px;
+    gap: 6px;
+    color: lime;
+    text-shadow: 0 0 1px lime, 0 0 14px lime;
 }
