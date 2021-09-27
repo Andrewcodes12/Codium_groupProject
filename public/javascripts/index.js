@@ -114,7 +114,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
           body: JSON.stringify(body),
           headers: { "Content-Type": "application/json" },
         });
-        
+
 
         const commentData = await commentResponse.json();
         const { id, userId, firstName, lastName, updatedAt } = commentData
@@ -259,7 +259,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         commenterName.appendChild(commneterFristName)
         commenterName.appendChild(commneterLastName)
         //---------------------------------------------------------------------
-        
+
         //---------------------------------------------------------------------
         // Appending buttons to comment button div
         commentButtons.appendChild(editBtn);
@@ -270,8 +270,8 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         // Setting buttonto be hidden by defualt
         editCancelBtn.hidden= true
         editSubmitBtn.hidden= true
-        //--------------------------------------------------------------------- 
-        
+        //---------------------------------------------------------------------
+
       } catch (e) {
         console.log("Failed to fetch comments", e);
       }
@@ -288,10 +288,10 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         });
         const { likesCount } = await res.json();
 
-        likeBtn.innerText = `Likes: ${likesCount}`
-        
+        likeBtn.innerText = `LIKES: ${likesCount}`
+
       } catch (e) {
           console.log("Failed to fetch comments", e);
       }
-    })   
+    })
 })
