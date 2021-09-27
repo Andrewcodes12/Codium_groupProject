@@ -2,9 +2,18 @@
     box-sizing: border-box;
 }
 
+.storyAndTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 .story-title {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    align-items: left;
     font-size: 40px;
     font-family: "checkbookregular";
     color: lime;
@@ -14,7 +23,7 @@
 
 .editSub{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     font-size: 30px;
     margin: inherit;
     margin-top: -35px;
@@ -27,7 +36,10 @@
 
 .story-topic {
     display: flex;
-    margin-top: -55px;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: -55px;
 }
 
 .story-topic > * {
@@ -51,7 +63,18 @@
     margin-left: 60px;
 }
 
+.editUserName {
+    color: lime;
+    font-size: 28px;
+}
 
+.editTopicName {
+    margin-top: 40px;
+}
+
+.editDate {
+    margin-top: 50px;
+}
 
 .storyBodyDiv{
     text-align: left;
@@ -140,6 +163,10 @@
     box-shadow: 0 0 10px 3px gainsboro;
 }
 
+.commentContainer {
+    padding-bottom: 90px;
+}
+
 .commentHeader{
     display: flex;
     justify-content: center;
@@ -155,7 +182,6 @@
 .commentBoxForm {
     display: flex;
     justify-content: center;
-    padding-bottom: 80px;
 }
 
 .user-comment-input{
@@ -170,17 +196,28 @@
     resize: none;
 }
 
+.submitButton {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
 #submitBtn{
+    background-color: rgb(139, 248, 139);
+    width: 90px;
+    height: 30px;
     font-size: 15px;
-    background-color: lime;
-    transition-duration:.4s;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    box-shadow: 0px 0px 10px 3px  rgb(139, 248, 139);
+    text-decoration: none;
+    font-family: "C64 Pro";
+    border: none;
 }
 
 #submitBtn:hover{
-    background-color:rgb(119, 255, 85);
-    color: black;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: .2s;
+    background-color: gainsboro;
+    box-shadow: 0 0 10px 3px gainsboro;
 }
 
 .commentList{
@@ -240,4 +277,24 @@
 
 .commentButtons {
     font-family: "C64 Pro";
+    margin-top: -30px;
+}
+
+.commenterNameContainer {
+    display: flex;
+    gap: 6px;
+    margin-left: -5px;
+}
+
+.comment-date {
+    margin-left: 100px;
+}
+
+.commentInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+    gap: 10px;
 }

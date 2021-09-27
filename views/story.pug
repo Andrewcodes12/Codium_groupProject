@@ -2,20 +2,20 @@ extends layout.pug
 
 
 block content
-  div(class='story-title')
-    h2= story.title
-  div(class='story-subtitle')
-    h3.editSub= story.subtitle
-
-  div(class='body2')
-  div.storyBodyDiv
-    p.storyBody= story.body
+  div(class="storyAndTitle")
+    div(class='story-title')
+      h2= story.title
+    div(class='story-subtitle')
+      h3.editSub= story.subtitle
   div(class='story-topic')
     div(class="topicName")
       h4.editTopicName= story.Topic.name
     div(class="userAndDate")
       h5.editUserName= `${story.User.firstName} ${story.User.lastName}`
       h5.editDate= story.createdAt.toDateString()
+  div(class='body2')
+  div.storyBodyDiv
+    p.storyBody= story.body
   div.storyDiv
     div(class="delEditAddBtns")
       if ( locals.user && locals.user.id === story.userId )
@@ -32,17 +32,19 @@ block content
       div(class='commentBoxForm')
         input(id='token' type='hidden' name='_csrf' value=csrfToken)
         textarea(name="body" class='user-comment-input' required)
-        div.submitBtn
-          button(id='submitBtn' data-story-id=story.id) Submit
+      div.submitButton
+        button(id='submitBtn' data-story-id=story.id) SUBMIT
       div.commentList
         each comment in comments
           div(class="comments")
             div(class=`comment-${comment.id}`)
             div(class='commenterInfo')
-            div(class='commenterName') Created by:
-              span(id='commenter-first-name')= comment.User.firstName
-              span(id='commenter-last-name')= comment.User.lastName
-            div(class='comment-date')= comment.createdAt.toDateString()
+            div(class='commentInfo')
+              div(class="commenterNameContainer")
+                span(id='commenter-first-name')= comment.User.firstName
+                span(id='commenter-last-name')= comment.User.lastName
+              div(class='comment-date')= comment.createdAt.toDateString()
+
             input(type='hidden', value=`${comment.id}`, id=`${comment.id}`)
             div(class='commentBody' contenteditable="false")= comment.body
             if locals.authenticated && locals.user.id === comment.userId

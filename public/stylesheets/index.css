@@ -104,6 +104,14 @@ hr {
   text-shadow: 0 0 1px rgb(119, 255, 85), 0 0 4px rgb(72, 228, 92), 0 0 28px rgb(72, 228, 92);
 }
 
+.story-topic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 .btnAddStory{
   color:rgb(112, 218, 129);
   font-family: Unispace;
@@ -138,6 +146,9 @@ hr {
   text-shadow:0 0 1px #fff, 0 0 5px #fff,  0 0 8px #fff;
 }
 
+.submitBtn {
+  
+}
 
 /* contains date and name, and topics containers */
 .topic {
