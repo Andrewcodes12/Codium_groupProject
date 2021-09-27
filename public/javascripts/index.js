@@ -162,7 +162,7 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         commentBugInfo.classList.add('commneterInfo');
 
         const commenterName = document.createElement('div');
-        commenterName.classList.add('commenterNameContainer');
+        commenterName.classList.add('commenterName');
 
         const commneterFristName = document.createElement('span');
         commneterFristName.setAttribute('id', 'commenter-first-name');

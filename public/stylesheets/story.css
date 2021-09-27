@@ -241,6 +241,7 @@
 
 .commentBody{
     text-align: left;
+    color: white;
     padding-left: 15px;
     background: linear-gradient(
         to bottom,
@@ -255,7 +256,7 @@
     margin-top: 10px;
     margin-bottom: 30px;
     overflow-wrap: break-word;
-    text-shadow: 0 0 1px lime, 0 0 10px lime;
+    text-shadow: 0 0 1px white, 0 0 10px white;
     letter-spacing: 3px;
 }
 
@@ -286,7 +287,7 @@
 .commentInfo {
     display: flex;
     flex-direction: row;
-    justify-content: space-be;
+    justify-content: space-between;
     margin-left: 20%;
     margin-right: 20%;
     gap: 10px;
