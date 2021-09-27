@@ -1,4 +1,5 @@
 
+
 window.addEventListener("DOMContentLoaded", async (event) =>{
   const commentList = document.querySelector('.commentList')
   const commentBtn = document.querySelector('#submitBtn')
@@ -122,38 +123,41 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         //Creating Edit buttton
         const editBtn = document.createElement('button');
         editBtn.setAttribute('value', id)
-        editBtn.className += `editBtn-${id}`;
+        editBtn.className += 'editBtn ';
+        editBtn.className += `editBtn-${id} `;
         editBtn.className += 'btn';
-        editBtn.className += 'editBtn';
         editBtn.innerText = 'Edit'
         //-------------------------------------------------------
         //Creating delete button
         const deleteBtn = document.createElement('button');
         deleteBtn.setAttribute('value', id)
-        deleteBtn.className += `deleteBtn-${id}`;
+        deleteBtn.className += 'deleteBtn ';
+        deleteBtn.className += `deleteBtn-${id} `;
         deleteBtn.className += 'btn';
-        deleteBtn.className += 'deleteBtn';
         deleteBtn.innerText = 'Delete'
         //-------------------------------------------------------
         //Creating edit cancel button
         const editCancelBtn = document.createElement('button');
         editCancelBtn.setAttribute('value', id)
-        editCancelBtn.className += `editCancelBtn-${id}`;
+        editCancelBtn.className += 'editCancelBtn ';
+        editCancelBtn.className += `editCancelBtn-${id} `;
         editCancelBtn.className += 'btn';
-        editCancelBtn.className += 'editCancelBtn';
         editCancelBtn.innerText = 'Cancel'
         //-------------------------------------------------------
         //Creating edit submit button
         const editSubmitBtn = document.createElement('button');
         editSubmitBtn.setAttribute('value', id)
-        editSubmitBtn.className += `editSubmitBtn-${id}`;
+        editSubmitBtn.className += 'editSubmitBtn ';
+        editSubmitBtn.className += `editSubmitBtn-${id} `;
         editSubmitBtn.className += 'btn';
-        editSubmitBtn.className += 'editSubmitBtn';
         editSubmitBtn.innerText = 'Submit'
         //-------------------------------------------------------
         //Create divs for comment
         const commentPost = document.createElement('div');
         commentPost.className += `comment-${id}`;
+
+        const comments = document.createElement('div');
+        comments.classList.add('comments')
 
         const commenterInfo = document.createElement("div")
         commenterInfo.classList.add('commenterInfo')
@@ -163,11 +167,11 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         commenterName.innerText = 'Created by:'
 
         const commneterFristName = document.createElement('span');
-        commneterFristName.classList.add('commenter-first-name');
+        commneterFristName.setAttribute('id', 'commenter-first-name');
         commneterFristName.innerText = `${firstName}`
 
         const commneterLastName = document.createElement('span');
-        commneterLastName.classList.add('commenter-Last-Name');
+        commneterLastName.setAttribute('id', 'commenter-last-Name');
         commneterLastName.innerText = `lastName`
 
         const commentDate = document.createElement('div');
@@ -253,7 +257,8 @@ window.addEventListener("DOMContentLoaded", async (event) =>{
         commentPost.appendChild(commentDate)
         commentPost.appendChild(commentBody)
         // Appending comment to the list of comments
-        commentList.prepend(commentPost);
+        comments.appendChild(commentPost);
+        commentList.prepend(comments);
         //---------------------------------------------------------------------
         // Appending users first, last name to user name div
         commenterName.appendChild(commneterFristName)
